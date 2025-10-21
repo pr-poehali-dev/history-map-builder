@@ -276,7 +276,7 @@ const Index = () => {
             <HistoricalMap
               objects={mapObjects}
               currentDate={currentDate}
-              onObjectClick={setSelectedObject}
+              onObjectClick={(obj) => setSelectedObject(obj)}
               selectedObject={selectedObject}
               onResetZoom={() => {}}
             />
@@ -285,24 +285,48 @@ const Index = () => {
       </div>
 
       <Dialog open={!!selectedObject} onOpenChange={() => setSelectedObject(null)}>
-        <DialogContent>
+        <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>{selectedObject?.name}</DialogTitle>
-            <DialogDescription className="space-y-2 pt-2">
-              <p>{selectedObject?.info}</p>
-              <Separator />
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div>
-                  <span className="text-xs font-medium">Период существования:</span>
-                  <p className="text-sm">{selectedObject?.activeFrom}—{selectedObject?.activeTo}</p>
-                </div>
-                <div>
-                  <span className="text-xs font-medium">Текущий год:</span>
-                  <p className="text-sm">{currentDate}</p>
-                </div>
-              </div>
+            <DialogTitle>
+              {selectedObject?.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : selectedObject?.name}
+            </DialogTitle>
+            <DialogDescription>
+              {selectedObject?.activeFrom}—{selectedObject?.activeTo}
             </DialogDescription>
           </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-sm text-foreground">{selectedObject?.info}</p>
+            
+            <Separator />
+            
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Связанные события</h4>
+              <div className="space-y-2">
+                {events
+                  .filter(e => e.objectId === selectedObject?.id)
+                  .map(event => (
+                    <div 
+                      key={event.id} 
+                      className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer"
+                      onClick={() => {
+                        setCurrentDate(event.date);
+                        setSelectedObject(null);
+                      }}
+                    >
+                      <div className="flex items-baseline gap-2 mb-1">
+                        <span className="text-xs font-medium text-primary">{event.date}</span>
+                        <span className="text-xs text-muted-foreground">{event.category}</span>
+                      </div>
+                      <h5 className="text-sm font-medium mb-1">{event.title}</h5>
+                      <p className="text-xs text-muted-foreground">{event.description}</p>
+                    </div>
+                  ))}
+                {events.filter(e => e.objectId === selectedObject?.id).length === 0 && (
+                  <p className="text-sm text-muted-foreground">Нет связанных событий</p>
+                )}
+              </div>
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
