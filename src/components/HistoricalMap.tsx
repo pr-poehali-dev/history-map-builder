@@ -10,6 +10,7 @@ type MapObject = {
   info: string;
   activeFrom: number;
   activeTo: number;
+  color?: string;
 };
 
 type HistoricalMapProps = {
@@ -82,7 +83,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
 
     activeObjects.forEach(obj => {
       const isSelected = selectedObject?.id === obj.id;
-      const color = isSelected ? '#2C3E50' : '#34495E';
+      const color = obj.color || (isSelected ? '#2C3E50' : '#34495E');
       
       const displayName = obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name;
       
