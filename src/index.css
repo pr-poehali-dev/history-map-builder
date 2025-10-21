@@ -106,6 +106,18 @@
   }
 }
 
+#map-container {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #e5e5e5;
+}
+
 .map-label {
   background: transparent !important;
   border: none !important;
