@@ -76,6 +76,8 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       const isSelected = selectedObject?.id === obj.id;
       const color = isSelected ? '#2C3E50' : '#34495E';
       
+      const displayName = obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name;
+      
       const icon = L.divIcon({
         html: `
           <div style="display: flex; flex-direction: column; align-items: center;">
@@ -95,7 +97,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         .addTo(map)
         .bindPopup(`
           <div style="font-size: 14px;">
-            <h4 style="font-weight: 600; margin-bottom: 4px;">${obj.name}</h4>
+            <h4 style="font-weight: 600; margin-bottom: 4px;">${displayName}</h4>
             <p style="font-size: 12px; color: #666; margin-bottom: 4px;">${obj.info}</p>
             <p style="font-size: 12px; color: #666;">${obj.activeFrom}—${obj.activeTo}</p>
           </div>
@@ -112,7 +114,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         offset: [0, 8]
       })
         .setLatLng([obj.lat, obj.lng])
-        .setContent(`<span style="font-size: 12px; font-weight: 500; color: #2C3E50; text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;">${obj.name}</span>`)
+        .setContent(`<span style="font-size: 12px; font-weight: 500; color: #2C3E50; text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;">${displayName}</span>`)
         .addTo(map);
 
       markers.push(marker, label);
