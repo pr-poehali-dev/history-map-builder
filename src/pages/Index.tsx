@@ -336,16 +336,17 @@ const Index = () => {
         setSelectedObject(null);
         setShowRelatedEvents(false);
       }}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>
               {selectedObject?.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : selectedObject?.name}
             </DialogTitle>
             <DialogDescription>
-              {selectedObject?.activeFrom}—{selectedObject?.activeTo}
+              {selectedObject?.id === 'don-5' ? 'Первое упоминание: 1571 г.' : `${selectedObject?.activeFrom}—${selectedObject?.activeTo}`}
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+          <ScrollArea className="flex-1 pr-4">
+            <div className="space-y-4">
             {selectedObject?.id === 'don-5' && (
               <img 
                 src="https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png" 
@@ -406,6 +407,7 @@ const Index = () => {
               </>
             )}
           </div>
+          </ScrollArea>
         </DialogContent>
       </Dialog>
 
