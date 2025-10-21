@@ -122,7 +122,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         offset: [0, 8]
       })
         .setLatLng([obj.lat, obj.lng])
-        .setContent(`<span style="font-size: 12px; font-weight: 500; color: #2C3E50; text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;">${displayName}</span>`)
+        .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
         .addTo(map);
 
       markers.push(marker, label);

@@ -35,6 +35,8 @@ const Index = () => {
   const [timeUnit, setTimeUnit] = useState<TimeUnit>('year');
   const [hoveredObject, setHoveredObject] = useState<MapObject | null>(null);
   const [selectedObject, setSelectedObject] = useState<MapObject | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [showRelatedEvents, setShowRelatedEvents] = useState(false);
   const [eventFilter, setEventFilter] = useState<'all' | 'category'>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [mapStyle, setMapStyle] = useState<'roadmap' | 'satellite' | 'terrain'>('roadmap');
@@ -140,6 +142,8 @@ const Index = () => {
                   setEventFilter('all');
                   setSelectedCategory('all');
                   setSelectedObject(null);
+                  setSelectedEvent(null);
+                  setShowRelatedEvents(false);
                 }}
               >
                 <div className="p-6">
@@ -230,10 +234,7 @@ const Index = () => {
                   }`}
                   onClick={() => {
                     setCurrentDate(event.date);
-                    if (event.objectId) {
-                      const obj = mapObjects.find(o => o.id === event.objectId);
-                      if (obj) setSelectedObject(obj);
-                    }
+                    setSelectedEvent(event);
                   }}
                 >
                   <div className="flex items-start gap-2">
@@ -328,7 +329,10 @@ const Index = () => {
         </main>
       </div>
 
-      <Dialog open={!!selectedObject} onOpenChange={() => setSelectedObject(null)}>
+      <Dialog open={!!selectedObject} onOpenChange={() => {
+        setSelectedObject(null);
+        setShowRelatedEvents(false);
+      }}>
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle>
@@ -341,35 +345,92 @@ const Index = () => {
           <div className="space-y-4">
             <p className="text-sm text-foreground">{selectedObject?.info}</p>
             
-            <Separator />
-            
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Связанные события</h4>
-              <div className="space-y-2">
-                {events
-                  .filter(e => e.objectId === selectedObject?.id)
-                  .map(event => (
-                    <div 
-                      key={event.id} 
-                      className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer"
-                      onClick={() => {
-                        setCurrentDate(event.date);
-                        setSelectedObject(null);
-                      }}
-                    >
-                      <div className="flex items-baseline gap-2 mb-1">
-                        <span className="text-xs font-medium text-primary">{event.date}</span>
-                        <span className="text-xs text-muted-foreground">{event.category}</span>
-                      </div>
-                      <h5 className="text-sm font-medium mb-1">{event.title}</h5>
-                      <p className="text-xs text-muted-foreground">{event.description}</p>
+            {events.filter(e => e.objectId === selectedObject?.id).length > 0 && (
+              <>
+                <Separator />
+                
+                {!showRelatedEvents ? (
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => setShowRelatedEvents(true)}
+                  >
+                    Связанные события ({events.filter(e => e.objectId === selectedObject?.id).length})
+                  </Button>
+                ) : (
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-sm font-semibold">Связанные события</h4>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setShowRelatedEvents(false)}
+                      >
+                        Скрыть
+                      </Button>
                     </div>
-                  ))}
-                {events.filter(e => e.objectId === selectedObject?.id).length === 0 && (
-                  <p className="text-sm text-muted-foreground">Нет связанных событий</p>
+                    <div className="space-y-2">
+                      {events
+                        .filter(e => e.objectId === selectedObject?.id)
+                        .map(event => (
+                          <div 
+                            key={event.id} 
+                            className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer"
+                            onClick={() => {
+                              setCurrentDate(event.date);
+                              setSelectedObject(null);
+                              setShowRelatedEvents(false);
+                            }}
+                          >
+                            <div className="flex items-baseline gap-2 mb-1">
+                              <span className="text-xs font-medium text-primary">{event.date}</span>
+                              <span className="text-xs text-muted-foreground">{event.category}</span>
+                            </div>
+                            <h5 className="text-sm font-medium mb-1">{event.title}</h5>
+                            <p className="text-xs text-muted-foreground">{event.description}</p>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
                 )}
-              </div>
-            </div>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!selectedEvent} onOpenChange={() => setSelectedEvent(null)}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>{selectedEvent?.title}</DialogTitle>
+            <DialogDescription>
+              {selectedEvent?.date} • {selectedEvent?.category}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-sm text-foreground">{selectedEvent?.description}</p>
+            
+            {selectedEvent?.objectId && (
+              <>
+                <Separator />
+                <div>
+                  <p className="text-xs text-muted-foreground mb-2">Место события:</p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      const obj = mapObjects.find(o => o.id === selectedEvent.objectId);
+                      if (obj) {
+                        setSelectedObject(obj);
+                        setSelectedEvent(null);
+                      }
+                    }}
+                  >
+                    {mapObjects.find(o => o.id === selectedEvent.objectId)?.name}
+                  </Button>
+                </div>
+              </>
+            )}
           </div>
         </DialogContent>
       </Dialog>
