@@ -8,13 +8,14 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
+import HistoricalMap from '@/components/HistoricalMap';
 
 type TimeUnit = 'day' | 'month' | 'year' | 'decade' | '50years' | 'century';
 type MapObject = {
   id: string;
   name: string;
-  x: number;
-  y: number;
+  lat: number;
+  lng: number;
   info: string;
   activeFrom: number;
   activeTo: number;
@@ -25,8 +26,7 @@ type Event = {
   title: string;
   description: string;
   category: string;
-  mapX?: number;
-  mapY?: number;
+  objectId?: string;
 };
 
 const Index = () => {
@@ -44,18 +44,18 @@ const Index = () => {
   ];
 
   const mapObjects: MapObject[] = [
-    { id: '1', name: 'Азов', x: 45, y: 55, info: 'Крепость на Азовском море', activeFrom: 1475, activeTo: 1920 },
-    { id: '2', name: 'Черкасск', x: 40, y: 48, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
-    { id: '3', name: 'Новочеркасск', x: 42, y: 50, info: 'Новая столица казачества', activeFrom: 1805, activeTo: 1920 },
-    { id: '4', name: 'Таганрог', x: 52, y: 58, info: 'Порт и крепость', activeFrom: 1698, activeTo: 1920 }
+    { id: '1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: 'Крепость на Азовском море', activeFrom: 1475, activeTo: 1920 },
+    { id: '2', name: 'Черкасск', lat: 47.2416, lng: 39.4470, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
+    { id: '3', name: 'Новочеркасск', lat: 47.4221, lng: 40.0931, info: 'Новая столица казачества', activeFrom: 1805, activeTo: 1920 },
+    { id: '4', name: 'Таганрог', lat: 47.2357, lng: 38.8974, info: 'Порт и крепость', activeFrom: 1698, activeTo: 1920 }
   ];
 
   const events: Event[] = [
-    { id: '1', date: 1570, title: 'Основание Черкасска', description: 'Казаки основали поселение на Дону', category: 'География', mapX: 40, mapY: 48 },
-    { id: '2', date: 1637, title: 'Азовское сидение', description: 'Донские казаки захватили турецкую крепость Азов', category: 'Военная история', mapX: 45, mapY: 55 },
-    { id: '3', date: 1698, title: 'Основание Таганрога', description: 'Петр I основал крепость и порт', category: 'География', mapX: 52, mapY: 58 },
+    { id: '1', date: 1570, title: 'Основание Черкасска', description: 'Казаки основали поселение на Дону', category: 'География', objectId: '2' },
+    { id: '2', date: 1637, title: 'Азовское сидение', description: 'Донские казаки захватили турецкую крепость Азов', category: 'Военная история', objectId: '1' },
+    { id: '3', date: 1698, title: 'Основание Таганрога', description: 'Петр I основал крепость и порт', category: 'География', objectId: '4' },
     { id: '4', date: 1708, title: 'Восстание Булавина', description: 'Казачье восстание против реформ Петра I', category: 'Социальная история' },
-    { id: '5', date: 1805, title: 'Основание Новочеркасска', description: 'Перенос столицы Войска Донского', category: 'География', mapX: 42, mapY: 50 }
+    { id: '5', date: 1805, title: 'Основание Новочеркасска', description: 'Перенос столицы Войска Донского', category: 'География', objectId: '3' }
   ];
 
   const categories = ['География', 'Военная история', 'Социальная история'];
@@ -173,8 +173,8 @@ const Index = () => {
                   }`}
                   onClick={() => {
                     setCurrentDate(event.date);
-                    if (event.mapX && event.mapY) {
-                      const obj = mapObjects.find(o => o.x === event.mapX && o.y === event.mapY);
+                    if (event.objectId) {
+                      const obj = mapObjects.find(o => o.id === event.objectId);
                       if (obj) setSelectedObject(obj);
                     }
                   }}
@@ -184,7 +184,7 @@ const Index = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline gap-2 mb-1">
                         <span className="text-xs font-medium text-primary">{event.date}</span>
-                        {event.mapX && (
+                        {event.objectId && (
                           <Icon name="MapPin" size={12} className="text-primary flex-shrink-0" />
                         )}
                       </div>
@@ -233,69 +233,12 @@ const Index = () => {
           </div>
 
           <div className="flex-1 relative bg-muted/20 overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg className="w-full h-full" viewBox="0 0 100 100">
-                <defs>
-                  <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.1" className="text-border" />
-                  </pattern>
-                </defs>
-                <rect width="100" height="100" fill="url(#grid)" />
-                
-                {activeObjects.map(obj => (
-                  <g key={obj.id}>
-                    <circle
-                      cx={obj.x}
-                      cy={obj.y}
-                      r="2"
-                      className={`cursor-pointer transition-all ${
-                        hoveredObject?.id === obj.id || selectedObject?.id === obj.id
-                          ? 'fill-primary stroke-primary'
-                          : 'fill-secondary stroke-secondary'
-                      }`}
-                      strokeWidth="0.5"
-                      onMouseEnter={() => setHoveredObject(obj)}
-                      onMouseLeave={() => setHoveredObject(null)}
-                      onClick={() => setSelectedObject(obj)}
-                    />
-                    <text
-                      x={obj.x}
-                      y={obj.y - 3}
-                      textAnchor="middle"
-                      className="text-[2.5px] fill-current pointer-events-none font-medium"
-                    >
-                      {obj.name}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-
-              {hoveredObject && (
-                <div 
-                  className="absolute bg-card border border-border rounded shadow-lg p-3 pointer-events-none"
-                  style={{
-                    left: `${hoveredObject.x}%`,
-                    top: `${hoveredObject.y}%`,
-                    transform: 'translate(-50%, -120%)'
-                  }}
-                >
-                  <h4 className="text-sm font-semibold mb-1">{hoveredObject.name}</h4>
-                  <p className="text-xs text-muted-foreground">{hoveredObject.info}</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {hoveredObject.activeFrom}—{hoveredObject.activeTo}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="absolute bottom-4 right-4 flex gap-2">
-              <Button size="sm" variant="outline" className="h-8 w-8 p-0">
-                <Icon name="ZoomIn" size={16} />
-              </Button>
-              <Button size="sm" variant="outline" className="h-8 w-8 p-0">
-                <Icon name="ZoomOut" size={16} />
-              </Button>
-            </div>
+            <HistoricalMap
+              objects={mapObjects}
+              currentDate={currentDate}
+              onObjectClick={setSelectedObject}
+              selectedObject={selectedObject}
+            />
           </div>
         </main>
       </div>
