@@ -53,11 +53,31 @@ const Index = () => {
   const mapData = {
     don: {
       objects: [
-        { id: 'don-1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: 'Азов — один из древнейших городов Юга России, расположенный на левом берегу реки Дон в 12,5 километрах от его впадения в Таганрогский залив. Город занимает стратегически важное положение, благодаря чему на протяжении веков играл значительную роль в истории региона.\n\nИстория Азова началась более двух тысяч лет назад, когда на этой территории появились первые поселения скифов. В I–III веках здесь существовали два крупных земледельческих поселения меотов — Паниардис и Патарва, входившие в систему укреплённых городищ Боспорского царства.\n\nПервое письменное упоминание о золотоордынском городе Азак-Тана, относится к 1269 г. В это время проводится социально-экономическая политика ханом Золотой Орды — Менгу-Тимуром, связанная, с независимой политикой от Каракорума — освоение новых городов, таких как Азак.\n\nВ 1471 году город взят турками: и с этого времени вследствие запрещения европейским судам входить в Чёрное море, особенно же вследствие открытия морского пути в Индию, торговля в Азове пришла в совершенный упадок. Османская империя, дабы избежать набегов флотилий донских казаков на Крым и Северную Анатолию, соорудило здесь крепость (тур. Azak). Казакам крепость эта была особенно ненавистна, потому что препятствовала выходу их в Азовское море для торговли и набегов.\n\nОсобую известность Азов получил в XVII веке, когда донские и запорожские казаки после двухмесячной осады захватили крепость. Знаменитое «Азовское осадное сидение» 1637–1642 годов вошло в историю как пример мужества и стойкости казаков. В 1696 году Азов был взят войсками Петра I, что положило начало превращению России в морскую державу.\n\nВ 1709 году город стал административным центром Азовской губернии. Но в ходе Прутского похода 1711 года российская армия, попав в окружение, была принуждена к сдаче. Был заключён Прутский мир, по которому Россия уступила Османской империи Азов.\n\nВ 1736 году, во время русско-турецкой войны 1735—1... [truncated]
+        { id: 'don-1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: `Азов — один из древнейших городов Юга России, расположенный на левом берегу реки Дон в 12,5 километрах от его впадения в Таганрогский залив. Город занимает стратегически важное положение, благодаря чему на протяжении веков играл значительную роль в истории региона.
+
+История Азова началась более двух тысяч лет назад, когда на этой территории появились первые поселения скифов. В I–III веках здесь существовали два крупных земледельческих поселения меотов — Паниардис и Патарва, входившие в систему укреплённых городищ Боспорского царства.
+
+Первое письменное упоминание о золотоордынском городе Азак-Тана, относится к 1269 г. В это время проводится социально-экономическая политика ханом Золотой Орды — Менгу-Тимуром, связанная, с независимой политикой от Каракорума — освоение новых городов, таких как Азак.
+
+В 1471 году город взят турками: и с этого времени вследствие запрещения европейским судам входить в Чёрное море, особенно же вследствие открытия морского пути в Индию, торговля в Азове пришла в совершенный упадок. Османская империя, дабы избежать набегов флотилий донских казаков на Крым и Северную Анатолию, соорудило здесь крепость (тур. Azak). Казакам крепость эта была особенно ненавистна, потому что препятствовала выходу их в Азовское море для торговли и набегов.
+
+Особую известность Азов получил в XVII веке, когда донские и запорожские казаки после двухмесячной осады захватили крепость. Знаменитое «Азовское осадное сидение» 1637–1642 годов вошло в историю как пример мужества и стойкости казаков. В 1696 году Азов был взят войсками Петра I, что положило начало превращению России в морскую державу.
+
+В 1709 году город стал административным центром Азовской губернии. Но в ходе Прутского похода 1711 года российская армия, попав в окружение, была принуждена к сдаче. Был заключён Прутский мир, по которому Россия уступила Османской империи Азов.
+
+В 1736 году, во время русско-турецкой войны 1735—1739 годах крепость была взята войсками генерала Ласси. По Белградскому миру 1739 года крепость передавалась России с условием сноса крепостных сооружений и зданий, что и было выполнено в 1747 году. В течение 20 лет городские укрепления лежали в руинах. В марте 1769 года, с началом новой русско-турецкой войны, город снова был занят солдатами вологодского полка и донскими казаками и с тех пор город постоянно принадлежал России.
+
+В 1775 году Азов сделан административным центром новоучрежденной Азовской губернии. В 1782 году, по переводе губернского управления в Екатеринослав, Азов переименован опять в крепость, 31 марта 1810 года — в посад Ростовского уезда Екатеринославской губернии, а в 1888 году присоединён к Области Войска Донского и передан под казачье управление.`, activeFrom: 1475, activeTo: 1955, color: '#DC143C', image: 'https://cdn.poehali.dev/files/7122480f-4549-4b7f-974d-d466e424900a.png', customDate: 'Статус города с 1709 г.' },
         { id: 'don-2', name: 'Черкасск', lat: 47.238440, lng: 40.037454, info: 'Первая столица Войска Донского, центр казачьего самоуправления до переноса столицы в Новочеркасск', activeFrom: 1570, activeTo: 1955, color: '#00008B' },
         { id: 'don-3', name: 'Новочеркасск', lat: 47.4221, lng: 40.0931, info: 'Столица Донского казачества, основана атаманом Платовым как новый административный центр', activeFrom: 1805, activeTo: 1955, color: '#00008B' },
         { id: 'don-4', name: 'Таганрог', lat: 47.2357, lng: 38.8974, info: 'Первый российский порт на Азовском море, основан Петром I как военно-морская база', activeFrom: 1698, activeTo: 1955, color: '#DC143C' },
-        { id: 'don-5', name: 'Раздорская', lat: 47.540587, lng: 40.648557, info: 'Станица Раздорская считается первой столицей донского казачества. На протяжении нескольких десятилетий станица была центром войска Донского, прежде чем он перешёл в городок «Стыдное имя» (Ебок).\n\nПервое письменное сообщение о городке относится к августу 1571 г. и связано с проездом по Дону в Константинополь русского посланника Ишеина. Его сопровождали из Москвы до Азова Игнатий Кобяков и казачьи атаманы Мамин и Яковлев. В царской грамоте Кобякову предписывалось проводить Ишеина в Азов, а затем «взгребсти вверх Дону о Раздорах Донецких» и там дожидаться государева указа, а атаманам Баламутову, Кошелеву и Носу - быть при Кобяков\n\nВ XIX веке в станице бывали русская кавалеристка, офицер Русской Императорской армии, участница Отечественной войны 1812 года кавалерист-девица Н. А. Дурова, ставшая прототипом Шурочки из «Гусарской баллады». Позднее в станице бывали писатели А. С. Серафимович, М. А. Шолохов, В. А. Закруткин и А. В. Калинин.\n\nЗдесь проходили съемки фильмов «Донская повесть» 1964 года, по мотивам рассказов «Шибалково семя» и «Родинка» Михаила Шолохова.', activeFrom: 1570, activeTo: 1955, color: '#00008B' },
+        { id: 'don-5', name: 'Раздорская', lat: 47.540587, lng: 40.648557, info: `Станица Раздорская считается первой столицей донского казачества. На протяжении нескольких десятилетий станица была центром войска Донского, прежде чем он перешёл в городок «Стыдное имя» (Ебок).
+
+Первое письменное сообщение о городке относится к августу 1571 г. и связано с проездом по Дону в Константинополь русского посланника Ишеина. Его сопровождали из Москвы до Азова Игнатий Кобяков и казачьи атаманы Мамин и Яковлев. В царской грамоте Кобякову предписывалось проводить Ишеина в Азов, а затем «взгребсти вверх Дону о Раздорах Донецких» и там дожидаться государева указа, а атаманам Баламутову, Кошелеву и Носу - быть при Кобяков
+
+В XIX веке в станице бывали русская кавалеристка, офицер Русской Императорской армии, участница Отечественной войны 1812 года кавалерист-девица Н. А. Дурова, ставшая прототипом Шурочки из «Гусарской баллады». Позднее в станице бывали писатели А. С. Серафимович, М. А. Шолохов, В. А. Закруткин и А. В. Калинин.
+
+Здесь проходили съемки фильмов «Донская повесть» 1964 года, по мотивам рассказов «Шибалково семя» и «Родинка» Михаила Шолохова.`, activeFrom: 1570, activeTo: 1955, color: '#00008B', image: 'https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png' },
         { id: 'don-6', name: 'Ростов-на-Дону', lat: 47.217876, lng: 39.711994, info: 'Крупнейший город региона, основан как крепость для защиты южных рубежей России', activeFrom: 1749, activeTo: 1955, color: '#DC143C' },
         { id: 'don-7', name: 'Батайск', lat: 47.1378, lng: 39.7514, info: 'Город на левом берегу Дона, развивался как железнодорожный узел и промышленный центр', activeFrom: 1769, activeTo: 1955, color: '#DC143C' },
         { id: 'don-8', name: 'Койсуг', lat: 47.126363, lng: 39.687106, info: 'Татарское поселение у устья реки Темерник, позже вошло в состав Ростова-на-Дону', activeFrom: 1769, activeTo: 1955, color: '#00008B' },
@@ -97,242 +117,272 @@ const Index = () => {
         { id: 'smuta-e2', date: 1605, title: 'Вступление Лжедмитрия I в Москву', description: 'Самозванец занял престол', category: 'Политика', objectId: 'smuta-1' },
         { id: 'smuta-e3', date: 1608, title: 'Осада Троице-Сергиевой лавры', description: 'Героическая оборона монастыря', category: 'Военная история', objectId: 'smuta-4' },
         { id: 'smuta-e4', date: 1611, title: 'Формирование ополчения', description: 'Минин и Пожарский собирают войско', category: 'Военная история', objectId: 'smuta-3' },
-        { id: 'smuta-e5', date: 1612, title: 'Освобождение Москвы', description: 'Ополчение освободило столицу от поляков', category: 'Военная история', objectId: 'smuta-1' },
-        { id: 'smuta-e6', date: 1613, title: 'Избрание Михаила Романова', description: 'Земский собор избрал нового царя', category: 'Политика', objectId: 'smuta-1' }
+        { id: 'smuta-e5', date: 1612, title: 'Освобождение Москвы', description: 'Изгнание поляков из Кремля', category: 'Военная история', objectId: 'smuta-1' },
+        { id: 'smuta-e6', date: 1613, title: 'Избрание Михаила Романова', description: 'Начало династии Романовых', category: 'Политика', objectId: 'smuta-1' }
       ],
       categories: ['Политика', 'Военная история']
     }
   };
 
-  const currentMapData = selectedMap ? mapData[selectedMap as keyof typeof mapData] : null;
-  const mapObjects = currentMapData?.objects || [];
-  const events = currentMapData?.events || [];
-  const categories = currentMapData?.categories || [];
-  const currentMapInfo = maps.find(m => m.id === selectedMap);
+  const selectedMapData = selectedMap ? mapData[selectedMap as keyof typeof mapData] : null;
+  const mapObjects = selectedMapData?.objects || [];
+  const events = selectedMapData?.events || [];
+  const categories = selectedMapData?.categories || [];
 
-  const filteredEvents = events.filter(e => {
-    if (eventFilter === 'all') return true;
-    if (selectedCategory === 'all') return true;
-    return e.category === selectedCategory;
-  });
+  const filteredEvents = eventFilter === 'all' 
+    ? events.filter(e => !e.objectId || currentDate >= (mapObjects.find(o => o.id === e.objectId)?.activeFrom || 0))
+    : events.filter(e => 
+        e.category === selectedCategory && 
+        (!e.objectId || currentDate >= (mapObjects.find(o => o.id === e.objectId)?.activeFrom || 0))
+      );
 
-  const activeObjects = mapObjects.filter(obj => 
-    currentDate >= obj.activeFrom && currentDate <= obj.activeTo
-  );
+  const handleTimeStep = (direction: 'forward' | 'backward') => {
+    const currentMap = maps.find(m => m.id === selectedMap);
+    if (!currentMap) return;
 
-  if (!selectedMap) {
-    return (
-      <div className="min-h-screen bg-background">
-        <header className="border-b border-border">
-          <div className="container mx-auto px-6 py-4">
-            <h1 className="text-3xl font-semibold text-primary">HistoMap</h1>
-            <p className="text-sm text-muted-foreground mt-1">Интерактивные хронологические карты</p>
-          </div>
-        </header>
+    const steps: Record<TimeUnit, number> = {
+      day: 1/365,
+      month: 1/12,
+      year: 1,
+      decade: 10,
+      '50years': 50,
+      century: 100
+    };
 
-        <main className="container mx-auto px-6 py-12">
-          <nav className="flex gap-8 mb-12 border-b border-border">
-            <button className="pb-3 border-b-2 border-primary text-primary font-medium">Карты</button>
-            <button className="pb-3 text-muted-foreground hover:text-foreground transition-colors">Редактор карт</button>
-            <button className="pb-3 text-muted-foreground hover:text-foreground transition-colors">Справка</button>
-          </nav>
+    const step = steps[timeUnit];
+    const newDate = direction === 'forward' 
+      ? Math.min(currentDate + step, currentMap.maxYear)
+      : Math.max(currentDate - step, currentMap.minYear);
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-            {maps.map(map => (
-              <Card 
-                key={map.id}
-                className="overflow-hidden cursor-pointer hover:shadow-lg transition-all border-border"
-                onClick={() => {
-                  setSelectedMap(map.id);
-                  setCurrentDate(map.minYear);
-                  setEventFilter('all');
-                  setSelectedCategory('all');
-                  setSelectedObject(null);
-                  setSelectedEvent(null);
-                  setShowRelatedEvents(false);
-                }}
-              >
-                <div className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Icon name="Map" size={24} className="text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-medium mb-2">{map.name}</h3>
-                      <p className="text-sm text-muted-foreground">{map.period}</p>
-                    </div>
-                  </div>
-                </div>
-                {map.image && (
-                  <img 
-                    src={map.image} 
-                    alt={map.name}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-              </Card>
-            ))}
-          </div>
-        </main>
-      </div>
-    );
-  }
+    setCurrentDate(Math.round(newDate));
+  };
 
   return (
-    <div className="h-screen bg-background flex flex-col overflow-hidden">
-      <header className="border-b border-border flex-shrink-0">
-        <div className="px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={() => setSelectedMap(null)}>
-              <Icon name="ArrowLeft" size={18} />
-            </Button>
-            <div>
-              <h1 className="text-lg font-semibold">
-                {maps.find(m => m.id === selectedMap)?.name}
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                {maps.find(m => m.id === selectedMap)?.period}
-              </p>
+    <div className="flex flex-col h-screen bg-background">
+      <header className="border-b bg-card">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Icon name="MapPin" className="text-primary" size={28} />
+              <h1 className="text-2xl font-bold">Исторические карты</h1>
             </div>
           </div>
-          <nav className="flex gap-6">
-            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Редактор карты
-            </button>
-          </nav>
         </div>
       </header>
 
-      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
-        <aside className="md:w-80 border-r md:border-r border-b md:border-b-0 border-border flex flex-col order-2 md:order-1 h-64 md:h-auto">
-          <div className="p-4 border-b border-border">
-            <h2 className="text-sm font-semibold mb-3">События</h2>
-            <Tabs value={eventFilter} onValueChange={(v) => setEventFilter(v as any)}>
-              <TabsList className="w-full grid grid-cols-2">
-                <TabsTrigger value="all" className="text-xs">По датам</TabsTrigger>
-                <TabsTrigger value="category" className="text-xs">По сюжетам</TabsTrigger>
-              </TabsList>
-            </Tabs>
-            {eventFilter === 'category' && (
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="mt-3 h-9 text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Все сюжеты</SelectItem>
-                  {categories.map(cat => (
-                    <SelectItem key={cat} value={cat}>{cat}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-          </div>
-
-          <ScrollArea className="flex-1">
-            <div className="p-4 md:space-y-3 flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible">
-              {filteredEvents.map(event => (
-                <Card 
-                  key={event.id}
-                  className={`p-3 cursor-pointer transition-all border flex-shrink-0 w-64 md:w-auto ${
-                    Math.abs(event.date - currentDate) < 10 
-                      ? 'border-primary bg-primary/5' 
-                      : 'border-border hover:border-primary/50'
-                  }`}
+      <div className="flex-1 flex min-h-0">
+        {!selectedMap ? (
+          <div className="flex-1 flex items-center justify-center p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+              {maps.map(map => (
+                <Card
+                  key={map.id}
+                  className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group"
                   onClick={() => {
-                    setCurrentDate(event.date);
-                    setSelectedEvent(event);
+                    setSelectedMap(map.id);
+                    setCurrentDate(map.minYear);
                   }}
                 >
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-baseline gap-2 mb-1">
-                        <span className="text-xs font-medium text-primary">{event.date}</span>
-                        {event.objectId && (
-                          <Icon name="MapPin" size={12} className="text-primary flex-shrink-0" />
-                        )}
-                      </div>
-                      <h4 className="text-sm font-medium mb-1">{event.title}</h4>
-                      <p className="text-xs text-muted-foreground line-clamp-2">{event.description}</p>
-                      <span className="text-xs text-muted-foreground mt-1 inline-block">{event.category}</span>
+                  <div className="aspect-video relative overflow-hidden">
+                    <img 
+                      src={map.image} 
+                      alt={map.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                      <h3 className="text-xl font-semibold mb-1">{map.name}</h3>
+                      <p className="text-sm opacity-90">{map.period}</p>
                     </div>
                   </div>
                 </Card>
               ))}
             </div>
-          </ScrollArea>
-        </aside>
+          </div>
+        ) : (
+          <div className="flex-1 flex gap-4 p-4 min-h-0">
+            <aside className="w-80 flex flex-col gap-4 overflow-auto">
+              <Card className="p-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setSelectedMap(null);
+                    setSelectedObject(null);
+                    setSelectedEvent(null);
+                  }}
+                  className="mb-4"
+                >
+                  <Icon name="ArrowLeft" size={16} className="mr-2" />
+                  Назад к картам
+                </Button>
 
-        <main className="flex-1 flex flex-col order-1 md:order-2 min-h-0">
-          <div className="p-4 md:p-6 border-b border-border flex-shrink-0">
-            <div className="flex items-center gap-4 md:gap-6 mb-4">
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium">Временная шкала</span>
-                  <span className="text-xl md:text-2xl font-semibold">{currentDate}</span>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="text-sm font-medium">Дата: {currentDate}</label>
+                      <Select value={timeUnit} onValueChange={(v) => setTimeUnit(v as TimeUnit)}>
+                        <SelectTrigger className="w-24 h-8 text-xs">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="year">Год</SelectItem>
+                          <SelectItem value="decade">Десятилетие</SelectItem>
+                          <SelectItem value="50years">50 лет</SelectItem>
+                          <SelectItem value="century">Век</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <Slider
+                      value={[currentDate]}
+                      onValueChange={([v]) => setCurrentDate(v)}
+                      min={maps.find(m => m.id === selectedMap)?.minYear || 1540}
+                      max={maps.find(m => m.id === selectedMap)?.maxYear || 1955}
+                      step={1}
+                      className="mb-2"
+                    />
+
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleTimeStep('backward')}
+                        className="flex-1"
+                      >
+                        <Icon name="ChevronLeft" size={16} />
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleTimeStep('forward')}
+                        className="flex-1"
+                      >
+                        <Icon name="ChevronRight" size={16} />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Стиль карты</label>
+                    <Select value={mapStyle} onValueChange={(v) => setMapStyle(v as typeof mapStyle)}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="roadmap">Схема</SelectItem>
+                        <SelectItem value="satellite">Спутник</SelectItem>
+                        <SelectItem value="terrain">Рельеф</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-                <Slider 
-                  value={[currentDate]} 
-                  onValueChange={(v) => setCurrentDate(v[0])}
-                  min={currentMapInfo?.minYear || 1550}
-                  max={currentMapInfo?.maxYear || 1920}
-                  step={1}
-                  className="w-full"
+              </Card>
+
+              <Card className="flex-1 flex flex-col min-h-0">
+                <Tabs defaultValue="objects" className="flex flex-col h-full">
+                  <TabsList className="grid w-full grid-cols-2 m-4 mb-0">
+                    <TabsTrigger value="objects">Объекты</TabsTrigger>
+                    <TabsTrigger value="events">События</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="objects" className="flex-1 m-0 p-4 overflow-hidden">
+                    <ScrollArea className="h-full pr-4">
+                      <div className="space-y-2">
+                        {mapObjects
+                          .filter(obj => currentDate >= obj.activeFrom && currentDate <= obj.activeTo)
+                          .map(obj => (
+                            <div
+                              key={obj.id}
+                              className="p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                              onClick={() => setSelectedObject(obj)}
+                            >
+                              <h4 className="font-medium text-sm">
+                                {obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name}
+                              </h4>
+                              <p className="text-xs text-muted-foreground mt-1">
+                                {obj.activeFrom}—{obj.activeTo}
+                              </p>
+                            </div>
+                          ))}
+                      </div>
+                    </ScrollArea>
+                  </TabsContent>
+
+                  <TabsContent value="events" className="flex-1 m-0 p-4 overflow-hidden flex flex-col">
+                    <div className="mb-4 space-y-2">
+                      <div className="flex gap-2">
+                        <Button
+                          variant={eventFilter === 'all' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => setEventFilter('all')}
+                          className="flex-1"
+                        >
+                          Все
+                        </Button>
+                        <Button
+                          variant={eventFilter === 'category' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => setEventFilter('category')}
+                          className="flex-1"
+                        >
+                          По категории
+                        </Button>
+                      </div>
+
+                      {eventFilter === 'category' && (
+                        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите категорию" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">Все категории</SelectItem>
+                            {categories.map(cat => (
+                              <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      )}
+                    </div>
+
+                    <ScrollArea className="flex-1 pr-4">
+                      <div className="space-y-2">
+                        {filteredEvents
+                          .sort((a, b) => a.date - b.date)
+                          .map(event => (
+                            <div
+                              key={event.id}
+                              className="p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                              onClick={() => setSelectedEvent(event)}
+                            >
+                              <div className="flex items-baseline gap-2 mb-1">
+                                <span className="text-xs font-medium text-primary">{event.date}</span>
+                                <span className="text-xs text-muted-foreground">{event.category}</span>
+                              </div>
+                              <h4 className="font-medium text-sm">{event.title}</h4>
+                            </div>
+                          ))}
+                      </div>
+                    </ScrollArea>
+                  </TabsContent>
+                </Tabs>
+              </Card>
+            </aside>
+
+            <main className="flex-1 flex flex-col min-h-0">
+              <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-0">
+                <HistoricalMap
+                  objects={mapObjects}
+                  currentDate={currentDate}
+                  onObjectClick={(obj) => setSelectedObject(obj)}
+                  selectedObject={selectedObject}
+                  onResetZoom={() => {}}
+                  mapStyle={mapStyle}
                 />
               </div>
-              <Select value={timeUnit} onValueChange={(v) => setTimeUnit(v as TimeUnit)}>
-                <SelectTrigger className="w-24 md:w-32 h-9 text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="day">День</SelectItem>
-                  <SelectItem value="month">Месяц</SelectItem>
-                  <SelectItem value="year">Год</SelectItem>
-                  <SelectItem value="decade">Десятилетие</SelectItem>
-                  <SelectItem value="50years">50 лет</SelectItem>
-                  <SelectItem value="century">Век</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Стиль карты:</span>
-              <div className="flex gap-2">
-                <Button
-                  variant={mapStyle === 'roadmap' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapStyle('roadmap')}
-                >
-                  Дорожная
-                </Button>
-                <Button
-                  variant={mapStyle === 'satellite' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapStyle('satellite')}
-                >
-                  Спутник
-                </Button>
-                <Button
-                  variant={mapStyle === 'terrain' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapStyle('terrain')}
-                >
-                  Рельеф
-                </Button>
-              </div>
-            </div>
+            </main>
           </div>
-
-          <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-0">
-            <HistoricalMap
-              objects={mapObjects}
-              currentDate={currentDate}
-              onObjectClick={(obj) => setSelectedObject(obj)}
-              selectedObject={selectedObject}
-              onResetZoom={() => {}}
-              mapStyle={mapStyle}
-            />
-          </div>
-        </main>
+        )}
       </div>
 
       <Dialog open={!!selectedObject} onOpenChange={() => {
@@ -386,10 +436,11 @@ const Index = () => {
                     <div className="space-y-2">
                       {events
                         .filter(e => e.objectId === selectedObject?.id)
+                        .sort((a, b) => a.date - b.date)
                         .map(event => (
-                          <div 
-                            key={event.id} 
-                            className="p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors cursor-pointer"
+                          <div
+                            key={event.id}
+                            className="p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
                             onClick={() => {
                               setCurrentDate(event.date);
                               setSelectedObject(null);
