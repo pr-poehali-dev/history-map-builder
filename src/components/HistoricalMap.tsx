@@ -18,9 +18,10 @@ type HistoricalMapProps = {
   onObjectClick: (obj: MapObject) => void;
   selectedObject: MapObject | null;
   onResetZoom?: () => void;
+  mapStyle?: 'roadmap' | 'satellite' | 'terrain';
 };
 
-const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom }: HistoricalMapProps) => {
+const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom
@@ -53,7 +54,13 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       zoomControl: true,
     });
 
-    L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
+    const tileUrls = {
+      roadmap: 'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
+      satellite: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+      terrain: 'https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',
+    };
+
+    L.tileLayer(tileUrls[mapStyle], {
       attribution: '&copy; Google Maps',
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     }).addTo(map);
@@ -125,7 +132,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       markers.forEach(m => m.remove());
       map.remove();
     };
-  }, [objects, currentDate, selectedObject, onObjectClick]);
+  }, [objects, currentDate, selectedObject, onObjectClick, mapStyle]);
 
   return <div id="map-container" style={{ height: '100%', width: '100%' }} />;
 };

@@ -37,6 +37,7 @@ const Index = () => {
   const [selectedObject, setSelectedObject] = useState<MapObject | null>(null);
   const [eventFilter, setEventFilter] = useState<'all' | 'category'>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [mapStyle, setMapStyle] = useState<'roadmap' | 'satellite' | 'terrain'>('roadmap');
 
   const maps = [
     { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
@@ -286,6 +287,32 @@ const Index = () => {
                 </SelectContent>
               </Select>
             </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium">Стиль карты:</span>
+              <div className="flex gap-2">
+                <Button
+                  variant={mapStyle === 'roadmap' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setMapStyle('roadmap')}
+                >
+                  Дорожная
+                </Button>
+                <Button
+                  variant={mapStyle === 'satellite' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setMapStyle('satellite')}
+                >
+                  Спутник
+                </Button>
+                <Button
+                  variant={mapStyle === 'terrain' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setMapStyle('terrain')}
+                >
+                  Рельеф
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-0">
@@ -295,6 +322,7 @@ const Index = () => {
               onObjectClick={(obj) => setSelectedObject(obj)}
               selectedObject={selectedObject}
               onResetZoom={() => {}}
+              mapStyle={mapStyle}
             />
           </div>
         </main>
