@@ -66,6 +66,37 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     }).addTo(map);
 
+    const legend = L.control({ position: 'bottomleft' });
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'legend');
+      div.style.cssText = 'background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 13px; line-height: 1.8;';
+      div.innerHTML = `
+        <div style="font-weight: 600; margin-bottom: 8px; color: #2C3E50;">Этнический состав</div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; background: #00008B; border-radius: 50%; display: inline-block;"></span>
+          <span>Казачьи поселения</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; background: #DC143C; border-radius: 50%; display: inline-block;"></span>
+          <span>Русские</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; background: #D2B48C; border-radius: 50%; display: inline-block;"></span>
+          <span>Армяне</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; background: #FFD700; border-radius: 50%; display: inline-block;"></span>
+          <span>Калмыки</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; background: #228B22; border-radius: 50%; display: inline-block;"></span>
+          <span>Украинцы</span>
+        </div>
+      `;
+      return div;
+    };
+    legend.addTo(map);
+
     if (onResetZoom) {
       const resetButton = L.control({ position: 'bottomright' });
       resetButton.onAdd = () => {
