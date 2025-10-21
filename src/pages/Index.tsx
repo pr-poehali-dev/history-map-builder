@@ -39,7 +39,7 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const maps = [
-    { id: 'don', name: 'История Донского региона', period: '1550-1920', minYear: 1550, maxYear: 1920 },
+    { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
     { id: 'smuta', name: 'Смутное время', period: '1598-1613', minYear: 1598, maxYear: 1613 }
   ];
 
@@ -116,7 +116,7 @@ const Index = () => {
             {maps.map(map => (
               <Card 
                 key={map.id}
-                className="p-6 cursor-pointer hover:shadow-lg transition-all border-border"
+                className="overflow-hidden cursor-pointer hover:shadow-lg transition-all border-border"
                 onClick={() => {
                   setSelectedMap(map.id);
                   setCurrentDate(map.minYear);
@@ -125,15 +125,24 @@ const Index = () => {
                   setSelectedObject(null);
                 }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Map" size={24} className="text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-medium mb-2">{map.name}</h3>
-                    <p className="text-sm text-muted-foreground">{map.period}</p>
+                <div className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Map" size={24} className="text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-medium mb-2">{map.name}</h3>
+                      <p className="text-sm text-muted-foreground">{map.period}</p>
+                    </div>
                   </div>
                 </div>
+                {map.image && (
+                  <img 
+                    src={map.image} 
+                    alt={map.name}
+                    className="w-full h-48 object-cover"
+                  />
+                )}
               </Card>
             ))}
           </div>
