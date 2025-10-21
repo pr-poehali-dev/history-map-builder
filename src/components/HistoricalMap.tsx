@@ -23,7 +23,7 @@ type HistoricalMapProps = {
 const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom }: HistoricalMapProps) => {
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
-      currentDate >= obj.activeFrom && currentDate <= obj.activeTo
+      currentDate >= obj.activeFrom
     );
 
     let center: [number, number] = [47.2357, 39.7015];
