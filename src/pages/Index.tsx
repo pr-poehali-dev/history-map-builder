@@ -39,26 +39,51 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const maps = [
-    { id: 'don', name: 'История Донского региона', period: '1550-1920' },
-    { id: 'smuta', name: 'Смутное время', period: '1598-1613' }
+    { id: 'don', name: 'История Донского региона', period: '1550-1920', minYear: 1550, maxYear: 1920 },
+    { id: 'smuta', name: 'Смутное время', period: '1598-1613', minYear: 1598, maxYear: 1613 }
   ];
 
-  const mapObjects: MapObject[] = [
-    { id: '1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: 'Крепость на Азовском море', activeFrom: 1475, activeTo: 1920 },
-    { id: '2', name: 'Черкасск', lat: 47.2416, lng: 39.4470, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
-    { id: '3', name: 'Новочеркасск', lat: 47.4221, lng: 40.0931, info: 'Новая столица казачества', activeFrom: 1805, activeTo: 1920 },
-    { id: '4', name: 'Таганрог', lat: 47.2357, lng: 38.8974, info: 'Порт и крепость', activeFrom: 1698, activeTo: 1920 }
-  ];
+  const mapData = {
+    don: {
+      objects: [
+        { id: 'don-1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: 'Крепость на Азовском море', activeFrom: 1475, activeTo: 1920 },
+        { id: 'don-2', name: 'Черкасск', lat: 47.2416, lng: 39.4470, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
+        { id: 'don-3', name: 'Новочеркасск', lat: 47.4221, lng: 40.0931, info: 'Новая столица казачества', activeFrom: 1805, activeTo: 1920 },
+        { id: 'don-4', name: 'Таганрог', lat: 47.2357, lng: 38.8974, info: 'Порт и крепость', activeFrom: 1698, activeTo: 1920 }
+      ],
+      events: [
+        { id: 'don-e1', date: 1570, title: 'Основание Черкасска', description: 'Казаки основали поселение на Дону', category: 'География', objectId: 'don-2' },
+        { id: 'don-e2', date: 1637, title: 'Азовское сидение', description: 'Донские казаки захватили турецкую крепость Азов', category: 'Военная история', objectId: 'don-1' },
+        { id: 'don-e3', date: 1698, title: 'Основание Таганрога', description: 'Петр I основал крепость и порт', category: 'География', objectId: 'don-4' },
+        { id: 'don-e4', date: 1708, title: 'Восстание Булавина', description: 'Казачье восстание против реформ Петра I', category: 'Социальная история' },
+        { id: 'don-e5', date: 1805, title: 'Основание Новочеркасска', description: 'Перенос столицы Войска Донского', category: 'География', objectId: 'don-3' }
+      ],
+      categories: ['География', 'Военная история', 'Социальная история']
+    },
+    smuta: {
+      objects: [
+        { id: 'smuta-1', name: 'Москва', lat: 55.7558, lng: 37.6173, info: 'Столица государства', activeFrom: 1598, activeTo: 1613 },
+        { id: 'smuta-2', name: 'Тушино', lat: 55.8270, lng: 37.4370, info: 'Лагерь Лжедмитрия II', activeFrom: 1608, activeTo: 1610 },
+        { id: 'smuta-3', name: 'Нижний Новгород', lat: 56.2965, lng: 43.9361, info: 'Центр ополчения Минина и Пожарского', activeFrom: 1611, activeTo: 1613 },
+        { id: 'smuta-4', name: 'Троице-Сергиева лавра', lat: 56.3112, lng: 38.1377, info: 'Центр сопротивления польским интервентам', activeFrom: 1608, activeTo: 1610 }
+      ],
+      events: [
+        { id: 'smuta-e1', date: 1598, title: 'Смерть царя Фёдора', description: 'Пресеклась династия Рюриковичей', category: 'Политика', objectId: 'smuta-1' },
+        { id: 'smuta-e2', date: 1605, title: 'Вступление Лжедмитрия I в Москву', description: 'Самозванец занял престол', category: 'Политика', objectId: 'smuta-1' },
+        { id: 'smuta-e3', date: 1608, title: 'Осада Троице-Сергиевой лавры', description: 'Героическая оборона монастыря', category: 'Военная история', objectId: 'smuta-4' },
+        { id: 'smuta-e4', date: 1611, title: 'Формирование ополчения', description: 'Минин и Пожарский собирают войско', category: 'Военная история', objectId: 'smuta-3' },
+        { id: 'smuta-e5', date: 1612, title: 'Освобождение Москвы', description: 'Ополчение освободило столицу от поляков', category: 'Военная история', objectId: 'smuta-1' },
+        { id: 'smuta-e6', date: 1613, title: 'Избрание Михаила Романова', description: 'Земский собор избрал нового царя', category: 'Политика', objectId: 'smuta-1' }
+      ],
+      categories: ['Политика', 'Военная история']
+    }
+  };
 
-  const events: Event[] = [
-    { id: '1', date: 1570, title: 'Основание Черкасска', description: 'Казаки основали поселение на Дону', category: 'География', objectId: '2' },
-    { id: '2', date: 1637, title: 'Азовское сидение', description: 'Донские казаки захватили турецкую крепость Азов', category: 'Военная история', objectId: '1' },
-    { id: '3', date: 1698, title: 'Основание Таганрога', description: 'Петр I основал крепость и порт', category: 'География', objectId: '4' },
-    { id: '4', date: 1708, title: 'Восстание Булавина', description: 'Казачье восстание против реформ Петра I', category: 'Социальная история' },
-    { id: '5', date: 1805, title: 'Основание Новочеркасска', description: 'Перенос столицы Войска Донского', category: 'География', objectId: '3' }
-  ];
-
-  const categories = ['География', 'Военная история', 'Социальная история'];
+  const currentMapData = selectedMap ? mapData[selectedMap as keyof typeof mapData] : null;
+  const mapObjects = currentMapData?.objects || [];
+  const events = currentMapData?.events || [];
+  const categories = currentMapData?.categories || [];
+  const currentMapInfo = maps.find(m => m.id === selectedMap);
 
   const filteredEvents = events.filter(e => {
     if (eventFilter === 'all') return true;
@@ -92,7 +117,13 @@ const Index = () => {
               <Card 
                 key={map.id}
                 className="p-6 cursor-pointer hover:shadow-lg transition-all border-border"
-                onClick={() => setSelectedMap(map.id)}
+                onClick={() => {
+                  setSelectedMap(map.id);
+                  setCurrentDate(map.minYear);
+                  setEventFilter('all');
+                  setSelectedCategory('all');
+                  setSelectedObject(null);
+                }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -210,8 +241,8 @@ const Index = () => {
                 <Slider 
                   value={[currentDate]} 
                   onValueChange={(v) => setCurrentDate(v[0])}
-                  min={1550}
-                  max={1920}
+                  min={currentMapInfo?.minYear || 1550}
+                  max={currentMapInfo?.maxYear || 1920}
                   step={1}
                   className="w-full"
                 />

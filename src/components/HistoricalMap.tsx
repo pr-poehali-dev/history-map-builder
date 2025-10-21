@@ -21,9 +21,34 @@ type HistoricalMapProps = {
 
 const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: HistoricalMapProps) => {
   useEffect(() => {
+    const activeObjects = objects.filter(obj => 
+      currentDate >= obj.activeFrom && currentDate <= obj.activeTo
+    );
+
+    let center: [number, number] = [47.2357, 39.7015];
+    let zoom = 7;
+
+    if (activeObjects.length > 0) {
+      const bounds = L.latLngBounds(activeObjects.map(obj => [obj.lat, obj.lng]));
+      const centerLatLng = bounds.getCenter();
+      center = [centerLatLng.lat, centerLatLng.lng];
+      
+      const northEast = bounds.getNorthEast();
+      const southWest = bounds.getSouthWest();
+      const latDiff = Math.abs(northEast.lat - southWest.lat);
+      const lngDiff = Math.abs(northEast.lng - southWest.lng);
+      const maxDiff = Math.max(latDiff, lngDiff);
+      
+      if (maxDiff < 0.5) zoom = 10;
+      else if (maxDiff < 1) zoom = 9;
+      else if (maxDiff < 2) zoom = 8;
+      else if (maxDiff < 5) zoom = 7;
+      else zoom = 6;
+    }
+
     const map = L.map('map-container', {
-      center: [47.2357, 39.7015],
-      zoom: 7,
+      center,
+      zoom,
       zoomControl: true,
     });
 
@@ -32,10 +57,6 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: 
     }).addTo(map);
 
     const markers: (L.Marker | L.Tooltip)[] = [];
-
-    const activeObjects = objects.filter(obj => 
-      currentDate >= obj.activeFrom && currentDate <= obj.activeTo
-    );
 
     activeObjects.forEach(obj => {
       const isSelected = selectedObject?.id === obj.id;
