@@ -105,3 +105,14 @@
     font-family: "Playfair Display", serif;
   }
 }
+
+.map-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+
+.map-label::before {
+  display: none !important;
+}

@@ -31,7 +31,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: 
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
 
-    const markers: L.Marker[] = [];
+    const markers: (L.Marker | L.Tooltip)[] = [];
 
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom && currentDate <= obj.activeTo
@@ -43,10 +43,12 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: 
       
       const icon = L.divIcon({
         html: `
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4" fill="${color}"/>
-          </svg>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" fill="${color}"/>
+            </svg>
+          </div>
         `,
         className: 'custom-marker',
         iconSize: [24, 24],
@@ -68,7 +70,17 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: 
         onObjectClick(obj);
       });
 
-      markers.push(marker);
+      const label = L.tooltip({
+        permanent: true,
+        direction: 'bottom',
+        className: 'map-label',
+        offset: [0, 8]
+      })
+        .setLatLng([obj.lat, obj.lng])
+        .setContent(`<span style="font-size: 12px; font-weight: 500; color: #2C3E50; text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;">${obj.name}</span>`)
+        .addTo(map);
+
+      markers.push(marker, label);
     });
 
     return () => {
