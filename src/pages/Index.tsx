@@ -47,7 +47,7 @@ const Index = () => {
     don: {
       objects: [
         { id: 'don-1', name: 'Азов', lat: 47.1064, lng: 39.4178, info: 'Крепость на Азовском море', activeFrom: 1475, activeTo: 1920 },
-        { id: 'don-2', name: 'Черкасск', lat: 47.5092, lng: 39.9153, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
+        { id: 'don-2', name: 'Черкасск', lat: 47.238440, lng: 40.037454, info: 'Столица Войска Донского', activeFrom: 1570, activeTo: 1805 },
         { id: 'don-3', name: 'Новочеркасск', lat: 47.4221, lng: 40.0931, info: 'Новая столица казачества', activeFrom: 1805, activeTo: 1920 },
         { id: 'don-4', name: 'Таганрог', lat: 47.2357, lng: 38.8974, info: 'Порт и крепость', activeFrom: 1698, activeTo: 1920 }
       ],
