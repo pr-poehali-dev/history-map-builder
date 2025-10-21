@@ -101,13 +101,18 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         popupAnchor: [0, -12],
       });
 
+      const imageHtml = obj.id === 'don-5' 
+        ? `<img src="https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png" alt="Раздорская" style="width: 100%; max-width: 300px; height: auto; margin: 8px 0; border-radius: 4px;" />`
+        : '';
+      
       const marker = L.marker([obj.lat, obj.lng], { icon })
         .addTo(map)
         .bindPopup(`
           <div style="font-size: 14px;">
             <h4 style="font-weight: 600; margin-bottom: 4px;">${displayName}</h4>
+            <p style="font-size: 12px; color: #666; margin-bottom: 4px;">${obj.activeFrom}—${obj.activeTo}</p>
+            ${imageHtml}
             <p style="font-size: 12px; color: #666; margin-bottom: 4px;">${obj.info}</p>
-            <p style="font-size: 12px; color: #666;">${obj.activeFrom}—${obj.activeTo}</p>
           </div>
         `);
 
