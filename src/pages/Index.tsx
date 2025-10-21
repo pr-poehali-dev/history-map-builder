@@ -345,6 +345,13 @@ const Index = () => {
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
+            {selectedObject?.id === 'don-5' && (
+              <img 
+                src="https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png" 
+                alt="Раздорская" 
+                className="w-full rounded-md"
+              />
+            )}
             <p className="text-sm text-foreground">{selectedObject?.info}</p>
             
             {events.filter(e => e.objectId === selectedObject?.id).length > 0 && (
