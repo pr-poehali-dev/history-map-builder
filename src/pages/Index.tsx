@@ -28,6 +28,7 @@ type Event = {
   description: string;
   category: string;
   objectId?: string;
+  image?: string;
 };
 
 const Index = () => {
@@ -73,7 +74,7 @@ const Index = () => {
         { id: 'don-e7', date: 1761, title: 'Темерницкая таможня', description: 'Ростовская крепость становится важным торговым пунктом на южных рубежах', category: 'Экономика', objectId: 'don-6' },
         { id: 'don-e8', date: 1779, title: 'Основание Нахичевани', description: 'Армянские переселенцы из Крыма основали город рядом с Ростовом', category: 'География', objectId: 'don-9' },
         { id: 'don-e9', date: 1805, title: 'Основание Новочеркасска', description: 'Атаман Платов перенес столицу Войска Донского из затопляемого Черкасска', category: 'География', objectId: 'don-3' },
-        { id: 'don-e10', date: 1835, title: 'Ростов получает статус города', description: 'Крепость преобразована в город, начинается бурное экономическое развитие', category: 'Экономика', objectId: 'don-6' },
+        { id: 'don-e10', date: 1807, title: 'Ростов получает статус города', description: 'Поскольку к этому времени крепость св. Дмитрия Ростовского утратила своё военное значение, указом Александра I она получила статус уездного города, с этого времени начинается бурное экономическое развитие Ростова.', category: 'Экономика', objectId: 'don-6', image: 'https://cdn.poehali.dev/files/13624a7f-9769-420f-a1d7-d392ad866669.png' },
         { id: 'don-e11', date: 1870, title: 'Железная дорога в Ростове', description: 'Открытие железнодорожного сообщения превратило Ростов в крупнейший транспортный узел юга России', category: 'Экономика', objectId: 'don-6' },
         { id: 'don-e12', date: 1887, title: 'Батайск - железнодорожная станция', description: 'Развитие Батайска как важного железнодорожного узла', category: 'Экономика', objectId: 'don-7' },
         { id: 'don-e13', date: 1918, title: 'Гражданская война на Дону', description: 'Ростов и Донская область стали ареной ожесточенных боев Гражданской войны', category: 'Военная история', objectId: 'don-6' },
@@ -412,15 +413,23 @@ const Index = () => {
       </Dialog>
 
       <Dialog open={!!selectedEvent} onOpenChange={() => setSelectedEvent(null)}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>{selectedEvent?.title}</DialogTitle>
             <DialogDescription>
               {selectedEvent?.date} • {selectedEvent?.category}
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
-            <p className="text-sm text-foreground">{selectedEvent?.description}</p>
+          <ScrollArea className="max-h-[60vh] pr-4">
+            <div className="space-y-4 py-4">
+            {selectedEvent?.image && (
+              <img 
+                src={selectedEvent.image} 
+                alt={selectedEvent.title} 
+                className="w-full rounded-md"
+              />
+            )}
+            <p className="text-sm text-foreground text-justify">{selectedEvent?.description}</p>
             
             {selectedEvent?.objectId && (
               <>
@@ -444,6 +453,7 @@ const Index = () => {
               </>
             )}
           </div>
+          </ScrollArea>
         </DialogContent>
       </Dialog>
     </div>
