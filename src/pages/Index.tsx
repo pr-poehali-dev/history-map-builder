@@ -39,7 +39,7 @@ const Index = () => {
   const [showRelatedEvents, setShowRelatedEvents] = useState(false);
   const [eventFilter, setEventFilter] = useState<'all' | 'category'>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [mapStyle, setMapStyle] = useState<'roadmap' | 'satellite' | 'terrain'>('roadmap');
+  const [mapStyle, setMapStyle] = useState<'roadmap' | 'satellite' | 'terrain'>('satellite');
 
   const maps = [
     { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
@@ -56,9 +56,11 @@ const Index = () => {
         { id: 'don-5', name: 'Раздорская', lat: 47.540587, lng: 40.648557, info: 'Одна из старейших казачьих станиц на Дону, первое упоминание в исторических документах', activeFrom: 1570, activeTo: 1955 },
         { id: 'don-6', name: 'Ростов-на-Дону', lat: 47.217876, lng: 39.711994, info: 'Крупнейший город региона, основан как крепость для защиты южных рубежей России', activeFrom: 1749, activeTo: 1955 },
         { id: 'don-7', name: 'Батайск', lat: 47.1378, lng: 39.7514, info: 'Город на левом берегу Дона, развивался как железнодорожный узел и промышленный центр', activeFrom: 1769, activeTo: 1955 },
-        { id: 'don-8', name: 'Койсуг', lat: 47.126363, lng: 39.687106, info: 'Татарское поселение у устья реки Темерник, позже вошло в состав Ростова-на-Дону', activeFrom: 1540, activeTo: 1761 },
-        { id: 'don-9', name: 'Нахичевань-на-Дону', lat: 47.230393, lng: 39.764744, info: 'Армянский город, основанный переселенцами из Крыма, позже вошел в состав Ростова', activeFrom: 1779, activeTo: 1927 },
-        { id: 'don-10', name: 'Аксай', lat: 47.2642, lng: 39.8667, info: 'Казачья станица на реке Аксай, важный торговый пункт на пути к Азову', activeFrom: 1570, activeTo: 1955 }
+        { id: 'don-8', name: 'Койсуг', lat: 47.126363, lng: 39.687106, info: 'Татарское поселение у устья реки Темерник, позже вошло в состав Ростова-на-Дону', activeFrom: 1769, activeTo: 1761 },
+        { id: 'don-9', name: 'Нахичевань-на-Дону', lat: 47.230393, lng: 39.764744, info: 'Армянский город, основанный переселенцами из Крыма, позже вошел в состав Ростова', activeFrom: 1779, activeTo: 1928 },
+        { id: 'don-10', name: 'Аксай', lat: 47.2642, lng: 39.8667, info: 'Казачья станица на реке Аксай, важный торговый пункт на пути к Азову', activeFrom: 1570, activeTo: 1955 },
+        { id: 'don-11', name: 'Кагальницкая', lat: 46.882403, lng: 40.145216, info: 'Казачья станица на реке Кагальник, основана казаками Донского войска как поселение на южных рубежах', activeFrom: 1809, activeTo: 1955 },
+        { id: 'don-12', name: 'Новобатайск', lat: 46.898803, lng: 39.780816, info: 'Село на левом берегу Дона, основано крестьянами-переселенцами в начале XIX века', activeFrom: 1812, activeTo: 1955 }
       ],
       events: [
         { id: 'don-e1', date: 1570, title: 'Первые казачьи городки', description: 'Основание станиц Раздорской и других казачьих поселений на Дону', category: 'География', objectId: 'don-5' },
