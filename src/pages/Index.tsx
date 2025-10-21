@@ -39,8 +39,8 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const maps = [
-    { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/files/87757cd5-caf5-4cc2-b844-7cd8e02bb4ae.jpg' },
-    { id: 'smuta', name: 'Смутное время', period: '1598-1613', minYear: 1598, maxYear: 1613, image: 'https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/files/06701a9f-f0fc-4898-8fd4-aea18078bdf1.jpg' }
+    { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
+    { id: 'smuta', name: 'Смутное время', period: '1598-1613', minYear: 1598, maxYear: 1613, image: 'https://cdn.poehali.dev/files/7a685934-a9e4-4bc2-88a0-00adace0f210.png' }
   ];
 
   const mapData = {
