@@ -336,7 +336,7 @@ const Index = () => {
         setSelectedObject(null);
         setShowRelatedEvents(false);
       }}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>
               {selectedObject?.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : selectedObject?.name}
@@ -353,7 +353,7 @@ const Index = () => {
                 className="w-full rounded-md"
               />
             )}
-            <p className="text-sm text-foreground">{selectedObject?.info}</p>
+            <p className="text-sm text-foreground text-justify whitespace-pre-line">{selectedObject?.info}</p>
             
             {events.filter(e => e.objectId === selectedObject?.id).length > 0 && (
               <>
