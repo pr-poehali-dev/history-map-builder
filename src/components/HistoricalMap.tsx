@@ -17,9 +17,10 @@ type HistoricalMapProps = {
   currentDate: number;
   onObjectClick: (obj: MapObject) => void;
   selectedObject: MapObject | null;
+  onResetZoom?: () => void;
 };
 
-const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: HistoricalMapProps) => {
+const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom }: HistoricalMapProps) => {
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom && currentDate <= obj.activeTo
@@ -55,6 +56,19 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject }: 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
+
+    if (onResetZoom) {
+      const resetButton = L.control({ position: 'bottomright' });
+      resetButton.onAdd = () => {
+        const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        div.innerHTML = '<button id="reset-zoom-btn" style="background: white; border: none; padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 500; color: #2C3E50; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Сбросить масштаб</button>';
+        div.onclick = () => {
+          map.setView(center, zoom);
+        };
+        return div;
+      };
+      resetButton.addTo(map);
+    }
 
     const markers: (L.Marker | L.Tooltip)[] = [];
 
