@@ -167,8 +167,8 @@ const Index = () => {
         </div>
       </header>
 
-      <div className="flex-1 flex overflow-hidden">
-        <aside className="w-80 border-r border-border flex flex-col">
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+        <aside className="md:w-80 border-r md:border-r border-b md:border-b-0 border-border flex flex-col order-2 md:order-1 h-64 md:h-auto">
           <div className="p-4 border-b border-border">
             <h2 className="text-sm font-semibold mb-3">События</h2>
             <Tabs value={eventFilter} onValueChange={(v) => setEventFilter(v as any)}>
@@ -193,11 +193,11 @@ const Index = () => {
           </div>
 
           <ScrollArea className="flex-1">
-            <div className="p-4 space-y-3">
+            <div className="p-4 md:space-y-3 flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible">
               {filteredEvents.map(event => (
                 <Card 
                   key={event.id}
-                  className={`p-3 cursor-pointer transition-all border ${
+                  className={`p-3 cursor-pointer transition-all border flex-shrink-0 w-64 md:w-auto ${
                     Math.abs(event.date - currentDate) < 10 
                       ? 'border-primary bg-primary/5' 
                       : 'border-border hover:border-primary/50'
@@ -230,7 +230,7 @@ const Index = () => {
           </ScrollArea>
         </aside>
 
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col order-1 md:order-2">
           <div className="p-6 border-b border-border">
             <div className="flex items-center gap-6 mb-4">
               <div className="flex-1">
