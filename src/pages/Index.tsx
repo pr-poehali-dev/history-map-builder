@@ -172,49 +172,49 @@ const Index = () => {
 
       <div className="flex-1 flex min-h-0">
         {!selectedMap ? (
-          <div className="flex-1 flex items-center justify-center p-8">
-            <div className="max-w-5xl w-full space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-6 text-center">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon name="Map" className="text-primary" size={32} />
+          <div className="flex-1 flex items-center justify-center p-4 md:p-8">
+            <div className="max-w-5xl w-full space-y-6 md:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3 md:gap-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="Map" className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Карты</h3>
-                      <p className="text-sm text-muted-foreground">Просмотр исторических карт</p>
+                      <h3 className="text-base md:text-lg font-semibold mb-1">Карты</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">Просмотр исторических карт</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-6 text-center opacity-50">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon name="PenTool" className="text-primary" size={32} />
+                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50">
+                  <div className="flex flex-col items-center gap-3 md:gap-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="PenTool" className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Редактор карт</h3>
-                      <p className="text-sm text-muted-foreground">Создание и редактирование</p>
+                      <h3 className="text-base md:text-lg font-semibold mb-1">Редактор карт</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">Создание и редактирование</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-6 text-center opacity-50">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon name="BookOpen" className="text-primary" size={32} />
+                <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50">
+                  <div className="flex flex-col items-center gap-3 md:gap-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="BookOpen" className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Справочная информация</h3>
-                      <p className="text-sm text-muted-foreground">Энциклопедия и источники</p>
+                      <h3 className="text-base md:text-lg font-semibold mb-1">Справочная информация</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">Энциклопедия и источники</p>
                     </div>
                   </div>
                 </Card>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold mb-4">Доступные карты</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Доступные карты</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {maps.map(map => (
                     <Card
                       key={map.id}
@@ -231,9 +231,9 @@ const Index = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                          <h3 className="text-xl font-semibold mb-1">{map.name}</h3>
-                          <p className="text-sm opacity-90">{map.period}</p>
+                        <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
+                          <h3 className="text-base md:text-xl font-semibold mb-1">{map.name}</h3>
+                          <p className="text-xs md:text-sm opacity-90">{map.period}</p>
                         </div>
                       </div>
                     </Card>
@@ -243,9 +243,9 @@ const Index = () => {
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex gap-4 p-4 min-h-0">
-            <aside className="w-80 flex flex-col gap-4 overflow-auto">
-              <Card className="p-4">
+          <div className="flex-1 flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-0">
+            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 overflow-auto max-h-[40vh] md:max-h-none">
+              <Card className="p-3 md:p-4">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -254,18 +254,18 @@ const Index = () => {
                     setSelectedObject(null);
                     setSelectedEvent(null);
                   }}
-                  className="mb-4"
+                  className="mb-3 md:mb-4 w-full md:w-auto"
                 >
                   <Icon name="ArrowLeft" size={16} className="mr-2" />
                   Назад к картам
                 </Button>
 
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <label className="text-sm font-medium">Дата: {currentDate}</label>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                      <label className="text-xs md:text-sm font-medium">Дата: {currentDate}</label>
                       <Select value={timeUnit} onValueChange={(v) => setTimeUnit(v as TimeUnit)}>
-                        <SelectTrigger className="w-24 h-8 text-xs">
+                        <SelectTrigger className="w-full md:w-24 h-8 text-xs">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -286,12 +286,12 @@ const Index = () => {
                       className="mb-2"
                     />
 
-                    <div className="flex gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => handleTimeStep('backward')}
-                        className="flex-1"
+                        className="w-full"
                       >
                         <Icon name="ChevronLeft" size={16} />
                       </Button>
@@ -299,7 +299,7 @@ const Index = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => handleTimeStep('forward')}
-                        className="flex-1"
+                        className="w-full"
                       >
                         <Icon name="ChevronRight" size={16} />
                       </Button>
@@ -307,9 +307,9 @@ const Index = () => {
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Стиль карты</label>
+                    <label className="text-xs md:text-sm font-medium mb-2 block">Стиль карты</label>
                     <Select value={mapStyle} onValueChange={(v) => setMapStyle(v as typeof mapStyle)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="h-9 text-xs md:text-sm">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -324,26 +324,26 @@ const Index = () => {
 
               <Card className="flex-1 flex flex-col min-h-0">
                 <Tabs defaultValue="objects" className="flex flex-col h-full">
-                  <TabsList className="grid w-full grid-cols-2 m-4 mb-0">
-                    <TabsTrigger value="objects">Объекты</TabsTrigger>
-                    <TabsTrigger value="events">События</TabsTrigger>
+                  <TabsList className="grid w-full grid-cols-2 m-2 md:m-4 mb-0">
+                    <TabsTrigger value="objects" className="text-xs md:text-sm">Объекты</TabsTrigger>
+                    <TabsTrigger value="events" className="text-xs md:text-sm">События</TabsTrigger>
                   </TabsList>
 
-                  <TabsContent value="objects" className="flex-1 m-0 p-4 overflow-hidden">
-                    <ScrollArea className="h-full pr-4">
+                  <TabsContent value="objects" className="flex-1 m-0 p-2 md:p-4 overflow-hidden">
+                    <ScrollArea className="h-full pr-2 md:pr-4">
                       <div className="space-y-2">
                         {mapObjects
                           .filter(obj => currentDate >= obj.activeFrom && currentDate <= obj.activeTo)
                           .map(obj => (
                             <div
                               key={obj.id}
-                              className="p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                              className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
                               onClick={() => setSelectedObject(obj)}
                             >
-                              <h4 className="font-medium text-sm">
+                              <h4 className="font-medium text-xs md:text-sm">
                                 {obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name}
                               </h4>
-                              <p className="text-xs text-muted-foreground mt-1">
+                              <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
                                 {obj.activeFrom}—{obj.activeTo}
                               </p>
                             </div>
@@ -352,14 +352,14 @@ const Index = () => {
                     </ScrollArea>
                   </TabsContent>
 
-                  <TabsContent value="events" className="flex-1 m-0 p-4 overflow-hidden flex flex-col">
-                    <div className="mb-4 space-y-2">
-                      <div className="flex gap-2">
+                  <TabsContent value="events" className="flex-1 m-0 p-2 md:p-4 overflow-hidden flex flex-col">
+                    <div className="mb-3 md:mb-4 space-y-2">
+                      <div className="grid grid-cols-2 gap-2">
                         <Button
                           variant={eventFilter === 'all' ? 'default' : 'outline'}
                           size="sm"
                           onClick={() => setEventFilter('all')}
-                          className="flex-1"
+                          className="w-full text-xs md:text-sm"
                         >
                           Все
                         </Button>
@@ -367,7 +367,7 @@ const Index = () => {
                           variant={eventFilter === 'category' ? 'default' : 'outline'}
                           size="sm"
                           onClick={() => setEventFilter('category')}
-                          className="flex-1"
+                          className="w-full text-xs md:text-sm"
                         >
                           По категории
                         </Button>
@@ -375,7 +375,7 @@ const Index = () => {
 
                       {eventFilter === 'category' && (
                         <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-9 text-xs md:text-sm">
                             <SelectValue placeholder="Выберите категорию" />
                           </SelectTrigger>
                           <SelectContent>
@@ -388,21 +388,21 @@ const Index = () => {
                       )}
                     </div>
 
-                    <ScrollArea className="flex-1 pr-4">
+                    <ScrollArea className="flex-1 pr-2 md:pr-4">
                       <div className="space-y-2">
                         {filteredEvents
                           .sort((a, b) => a.date - b.date)
                           .map(event => (
                             <div
                               key={event.id}
-                              className="p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                              className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
                               onClick={() => setSelectedEvent(event)}
                             >
                               <div className="flex items-baseline gap-2 mb-1">
-                                <span className="text-xs font-medium text-primary">{event.date}</span>
-                                <span className="text-xs text-muted-foreground">{event.category}</span>
+                                <span className="text-[10px] md:text-xs font-medium text-primary">{event.date}</span>
+                                <span className="text-[10px] md:text-xs text-muted-foreground">{event.category}</span>
                               </div>
-                              <h4 className="font-medium text-sm">{event.title}</h4>
+                              <h4 className="font-medium text-xs md:text-sm">{event.title}</h4>
                             </div>
                           ))}
                       </div>
@@ -413,7 +413,7 @@ const Index = () => {
             </aside>
 
             <main className="flex-1 flex flex-col min-h-0">
-              <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-0">
+              <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-[50vh] md:min-h-0">
                 <HistoricalMap
                   objects={mapObjects}
                   currentDate={currentDate}
@@ -432,17 +432,17 @@ const Index = () => {
         setSelectedObject(null);
         setShowRelatedEvents(false);
       }}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className="text-base md:text-lg">
               {selectedObject?.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : selectedObject?.name}
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-xs md:text-sm">
               {selectedObject?.customDate || (selectedObject?.id === 'don-5' ? 'Первое упоминание: 1571 г.' : `${selectedObject?.activeFrom}—${selectedObject?.activeTo}`)}
             </DialogDescription>
           </DialogHeader>
-          <ScrollArea className="max-h-[60vh] pr-4">
-            <div className="space-y-4 py-4">
+          <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
+            <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {selectedObject?.image && (
               <img 
                 src={selectedObject.image} 
@@ -450,7 +450,7 @@ const Index = () => {
                 className="w-full rounded-md"
               />
             )}
-            <p className="text-sm text-foreground text-justify whitespace-pre-line">{selectedObject?.info}</p>
+            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{selectedObject?.info}</p>
             
             {events.filter(e => e.objectId === selectedObject?.id).length > 0 && (
               <>
@@ -491,11 +491,11 @@ const Index = () => {
                             }}
                           >
                             <div className="flex items-baseline gap-2 mb-1">
-                              <span className="text-xs font-medium text-primary">{event.date}</span>
-                              <span className="text-xs text-muted-foreground">{event.category}</span>
+                              <span className="text-[10px] md:text-xs font-medium text-primary">{event.date}</span>
+                              <span className="text-[10px] md:text-xs text-muted-foreground">{event.category}</span>
                             </div>
-                            <h5 className="text-sm font-medium mb-1">{event.title}</h5>
-                            <p className="text-xs text-muted-foreground">{event.description}</p>
+                            <h5 className="text-xs md:text-sm font-medium mb-1">{event.title}</h5>
+                            <p className="text-[10px] md:text-xs text-muted-foreground">{event.description}</p>
                           </div>
                         ))}
                     </div>
@@ -509,15 +509,15 @@ const Index = () => {
       </Dialog>
 
       <Dialog open={!!selectedEvent} onOpenChange={() => setSelectedEvent(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
           <DialogHeader>
-            <DialogTitle>{selectedEvent?.title}</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-base md:text-lg">{selectedEvent?.title}</DialogTitle>
+            <DialogDescription className="text-xs md:text-sm">
               {selectedEvent?.date} • {selectedEvent?.category}
             </DialogDescription>
           </DialogHeader>
-          <ScrollArea className="max-h-[60vh] pr-4">
-            <div className="space-y-4 py-4">
+          <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
+            <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {selectedEvent?.image && (
               <img 
                 src={selectedEvent.image} 
@@ -525,7 +525,7 @@ const Index = () => {
                 className="w-full rounded-md"
               />
             )}
-            <p className="text-sm text-foreground text-justify">{selectedEvent?.description}</p>
+            <p className="text-xs md:text-sm text-foreground text-justify">{selectedEvent?.description}</p>
             
             {selectedEvent?.objectId && (
               <>
