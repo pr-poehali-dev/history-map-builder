@@ -46,8 +46,8 @@ const MapSidebar = ({
           </TabsList>
         </div>
 
-        <TabsContent value="objects" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden flex flex-col">
-          <ScrollArea className="flex-1">
+        <TabsContent value="objects" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden">
+          <ScrollArea className="h-full">
             <div className="space-y-2 pr-2 md:pr-4">
               {mapObjects
                 .filter(obj => currentDate >= obj.activeFrom && currentDate <= obj.activeTo)
