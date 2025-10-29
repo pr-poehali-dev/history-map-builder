@@ -33,7 +33,7 @@ const EventDialog = ({ event, onClose }: EventDialogProps) => {
                 )}
               </div>
             )}
-            <p className="text-xs md:text-sm text-foreground text-justify">{event.description}</p>
+            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
           </div>
         </ScrollArea>
       </DialogContent>
