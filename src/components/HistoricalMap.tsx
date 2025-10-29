@@ -69,27 +69,36 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
     const legend = L.control({ position: 'bottomleft' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
-      div.style.cssText = 'background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 13px; line-height: 1.8;';
+      const isMobile = window.innerWidth < 768;
+      const scale = isMobile ? 0.7 : 1;
+      const padding = isMobile ? '8px' : '12px';
+      const fontSize = isMobile ? '9px' : '13px';
+      const lineHeight = isMobile ? '1.4' : '1.8';
+      const gap = isMobile ? '4px' : '8px';
+      const dotSize = isMobile ? '11px' : '16px';
+      const marginBottom = isMobile ? '4px' : '8px';
+      
+      div.style.cssText = `background: white; padding: ${padding}; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: ${fontSize}; line-height: ${lineHeight};`;
       div.innerHTML = `
-        <div style="font-weight: 600; margin-bottom: 8px; color: #2C3E50;">Этнический состав</div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 16px; height: 16px; background: #00008B; border-radius: 50%; display: inline-block;"></span>
+        <div style="font-weight: 600; margin-bottom: ${marginBottom}; color: #2C3E50;">Этнический состав</div>
+        <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: #00008B; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Казачьи поселения</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 16px; height: 16px; background: #DC143C; border-radius: 50%; display: inline-block;"></span>
+        <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: #DC143C; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Русские</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 16px; height: 16px; background: #D2B48C; border-radius: 50%; display: inline-block;"></span>
+        <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: #D2B48C; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Армяне</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 16px; height: 16px; background: #FFD700; border-radius: 50%; display: inline-block;"></span>
+        <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: #FFD700; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Калмыки</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 16px; height: 16px; background: #228B22; border-radius: 50%; display: inline-block;"></span>
+        <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: #228B22; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Украинцы</span>
         </div>
       `;
