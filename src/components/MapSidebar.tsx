@@ -39,7 +39,7 @@ const MapSidebar = ({
   return (
     <Card className="flex-1 flex flex-col min-h-0">
       <Tabs defaultValue="objects" className="flex flex-col h-full">
-        <TabsList className="grid w-full grid-cols-2 m-2 md:m-4 mb-0">
+        <TabsList className="grid w-full grid-cols-2 mx-2 md:mx-4 my-2 md:my-4">
           <TabsTrigger value="objects" className="text-xs md:text-sm">Объекты</TabsTrigger>
           <TabsTrigger value="events" className="text-xs md:text-sm">События</TabsTrigger>
         </TabsList>
