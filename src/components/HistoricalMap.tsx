@@ -133,9 +133,15 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         popupAnchor: [0, -12],
       });
 
-      const imageHtml = obj.id === 'don-5' 
-        ? `<img src="https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png" alt="Раздорская" style="width: 100%; max-width: 300px; height: auto; margin: 8px 0; border-radius: 4px;" />`
-        : '';
+      let imageHtml = '';
+      if (obj.id === 'don-5') {
+        imageHtml = `<img src="https://cdn.poehali.dev/files/4133b53a-a3be-4b7d-9e4f-0d7eb349b779.png" alt="Раздорская" style="width: 100%; max-width: 300px; height: auto; margin: 8px 0; border-radius: 4px;" />`;
+      } else if (obj.id === 'don-13') {
+        imageHtml = `
+          <img src="https://cdn.poehali.dev/files/c8ffa25a-804c-4271-aeb2-b4f8566591e8.png" alt="План осады и покорения Азова" style="width: 100%; max-width: 300px; height: auto; margin: 8px 0; border-radius: 4px;" />
+          <p style="font-size: 11px; color: #666; text-align: center; margin-top: 4px; margin-bottom: 8px;">План осады и покорения Азова русской армией в 1695 и 1696 годах</p>
+        `;
+      }
       
       const marker = L.marker([obj.lat, obj.lng], { icon })
         .addTo(map)
