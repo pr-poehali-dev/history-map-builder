@@ -63,7 +63,7 @@ const Index = () => {
           <MapSelector maps={maps} onSelectMap={handleSelectMap} />
         ) : (
           <div className="flex-1 flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-0">
-            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 overflow-auto max-h-[40vh] md:max-h-none">
+            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 min-h-0">
               <TimeControls
                 currentDate={currentDate}
                 timeUnit={timeUnit}
