@@ -1,7 +1,7 @@
 import { MapInfo, MapObject, Event } from '@/types/map';
 
 export const maps: MapInfo[] = [
-  { id: 'don', name: 'История Донского региона', period: '1540-1955', minYear: 1540, maxYear: 1955, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
+  { id: 'don', name: 'История Донского региона', period: '1540-1965', minYear: 1540, maxYear: 1965, image: 'https://cdn.poehali.dev/files/9a4bf4f3-423d-48b8-a40e-154723174a7d.png' },
   { id: 'smuta', name: 'Смутное время', period: '1598-1613', minYear: 1598, maxYear: 1613, image: 'https://cdn.poehali.dev/files/7a685934-a9e4-4bc2-88a0-00adace0f210.png' }
 ];
 
