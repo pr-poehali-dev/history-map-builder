@@ -127,20 +127,35 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       
       const displayName = obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name;
       
-      const icon = L.divIcon({
-        html: `
-          <div style="display: flex; flex-direction: column; align-items: center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
-              <circle cx="12" cy="12" r="4" fill="${color}"/>
-            </svg>
-          </div>
-        `,
-        className: 'custom-marker',
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-        popupAnchor: [0, -12],
-      });
+      let icon;
+      if (obj.id === 'don-13') {
+        icon = L.divIcon({
+          html: `
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <img src="https://cdn.poehali.dev/files/f9f9b854-e9cc-4060-9735-11dd3f038112.png" style="width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+            </div>
+          `,
+          className: 'custom-marker',
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+          popupAnchor: [0, -16],
+        });
+      } else {
+        icon = L.divIcon({
+          html: `
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" fill="${color}"/>
+              </svg>
+            </div>
+          `,
+          className: 'custom-marker',
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
+          popupAnchor: [0, -12],
+        });
+      }
 
       let imageHtml = '';
       if (obj.id === 'don-5') {
