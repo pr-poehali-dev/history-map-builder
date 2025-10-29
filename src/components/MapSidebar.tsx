@@ -46,9 +46,9 @@ const MapSidebar = ({
           </TabsList>
         </div>
 
-        <TabsContent value="objects" className="flex-1 m-0 p-2 md:p-4 overflow-hidden">
-          <ScrollArea className="h-full pr-2 md:pr-4">
-            <div className="space-y-2">
+        <TabsContent value="objects" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden">
+          <ScrollArea className="h-full">
+            <div className="space-y-2 pr-2 md:pr-4">
               {mapObjects
                 .filter(obj => currentDate >= obj.activeFrom && currentDate <= obj.activeTo)
                 .map(obj => (
@@ -69,8 +69,8 @@ const MapSidebar = ({
           </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="events" className="flex-1 m-0 p-2 md:p-4 overflow-hidden flex flex-col">
-          <div className="mb-3 md:mb-4 space-y-2">
+        <TabsContent value="events" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden flex flex-col">
+          <div className="mb-3 md:mb-4 space-y-2 flex-shrink-0">
             <div className="grid grid-cols-2 gap-2">
               <Button
                 variant={eventFilter === 'all' ? 'default' : 'outline'}
@@ -105,8 +105,8 @@ const MapSidebar = ({
             )}
           </div>
 
-          <ScrollArea className="flex-1 pr-2 md:pr-4">
-            <div className="space-y-2">
+          <ScrollArea className="flex-1">
+            <div className="space-y-2 pr-2 md:pr-4">
               {filteredEvents
                 .sort((a, b) => a.date - b.date)
                 .map(event => (
