@@ -127,6 +127,7 @@ const Index = () => {
 
       <EventDialog
         event={selectedEvent}
+        mapObjects={mapObjects}
         onClose={() => setSelectedEvent(null)}
       />
     </div>

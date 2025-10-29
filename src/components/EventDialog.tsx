@@ -1,14 +1,28 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Event } from '@/types/map';
+import { Event, MapObject } from '@/types/map';
 
 type EventDialogProps = {
   event: Event | null;
+  mapObjects: MapObject[];
   onClose: () => void;
 };
 
-const EventDialog = ({ event, onClose }: EventDialogProps) => {
+const EventDialog = ({ event, mapObjects, onClose }: EventDialogProps) => {
   if (!event) return null;
+
+  const getEventLocation = () => {
+    if (!event.objectId) return null;
+    
+    const objectIds = Array.isArray(event.objectId) ? event.objectId : [event.objectId];
+    const relatedObjects = mapObjects.filter(obj => objectIds.includes(obj.id));
+    
+    if (relatedObjects.length === 0) return null;
+    
+    return relatedObjects.map(obj => obj.name).join(', ');
+  };
+
+  const eventLocation = getEventLocation();
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
@@ -34,6 +48,13 @@ const EventDialog = ({ event, onClose }: EventDialogProps) => {
               </div>
             )}
             <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
+            
+            {eventLocation && (
+              <div className="pt-3 border-t">
+                <p className="text-xs text-muted-foreground mb-1">Место события:</p>
+                <p className="text-sm text-foreground">{eventLocation}</p>
+              </div>
+            )}
           </div>
         </ScrollArea>
       </DialogContent>
