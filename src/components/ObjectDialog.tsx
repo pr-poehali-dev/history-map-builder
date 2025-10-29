@@ -39,11 +39,16 @@ const ObjectDialog = ({
         <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
           <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {object.image && (
-              <img 
-                src={object.image} 
-                alt={object.name} 
-                className="w-full rounded-md"
-              />
+              <div className="space-y-2">
+                <img 
+                  src={object.image} 
+                  alt={object.name} 
+                  className="w-full rounded-md"
+                />
+                {object.imageCaption && (
+                  <p className="text-xs text-center text-muted-foreground">{object.imageCaption}</p>
+                )}
+              </div>
             )}
             <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
             

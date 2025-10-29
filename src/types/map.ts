@@ -10,6 +10,7 @@ export type MapObject = {
   activeTo: number;
   color?: string;
   image?: string;
+  imageCaption?: string;
   customDate?: string;
 };
 
