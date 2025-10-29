@@ -110,7 +110,12 @@ const Index = () => {
       <ObjectDialog
         object={selectedObject}
         currentDate={currentDate}
-        relatedEvents={events.filter(e => e.objectId === selectedObject?.id)}
+        relatedEvents={events.filter(e => {
+          if (Array.isArray(e.objectId)) {
+            return e.objectId.includes(selectedObject?.id || '');
+          }
+          return e.objectId === selectedObject?.id;
+        })}
         showRelatedEvents={showRelatedEvents}
         onClose={() => {
           setSelectedObject(null);

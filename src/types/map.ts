@@ -20,7 +20,7 @@ export type Event = {
   title: string;
   description: string;
   category: string;
-  objectId?: string;
+  objectId?: string | string[];
   image?: string;
 };
 
