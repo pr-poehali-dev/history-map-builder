@@ -129,6 +129,10 @@ const Index = () => {
         event={selectedEvent}
         mapObjects={mapObjects}
         onClose={() => setSelectedEvent(null)}
+        onObjectClick={(obj) => {
+          setSelectedObject(obj);
+          setSelectedEvent(null);
+        }}
       />
     </div>
   );

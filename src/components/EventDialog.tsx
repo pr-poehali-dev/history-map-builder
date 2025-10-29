@@ -1,28 +1,26 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
 import { Event, MapObject } from '@/types/map';
 
 type EventDialogProps = {
   event: Event | null;
   mapObjects: MapObject[];
   onClose: () => void;
+  onObjectClick?: (object: MapObject) => void;
 };
 
-const EventDialog = ({ event, mapObjects, onClose }: EventDialogProps) => {
+const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogProps) => {
   if (!event) return null;
 
-  const getEventLocation = () => {
-    if (!event.objectId) return null;
+  const getRelatedObjects = () => {
+    if (!event.objectId) return [];
     
     const objectIds = Array.isArray(event.objectId) ? event.objectId : [event.objectId];
-    const relatedObjects = mapObjects.filter(obj => objectIds.includes(obj.id));
-    
-    if (relatedObjects.length === 0) return null;
-    
-    return relatedObjects.map(obj => obj.name).join(', ');
+    return mapObjects.filter(obj => objectIds.includes(obj.id));
   };
 
-  const eventLocation = getEventLocation();
+  const relatedObjects = getRelatedObjects();
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
@@ -49,10 +47,25 @@ const EventDialog = ({ event, mapObjects, onClose }: EventDialogProps) => {
             )}
             <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
             
-            {eventLocation && (
+            {relatedObjects.length > 0 && (
               <div className="pt-3 border-t">
                 <p className="text-xs text-muted-foreground mb-1">Место события:</p>
-                <p className="text-sm text-foreground">{eventLocation}</p>
+                <div className="flex flex-wrap gap-2">
+                  {relatedObjects.map(obj => (
+                    <Button
+                      key={obj.id}
+                      variant="link"
+                      className="h-auto p-0 text-sm text-foreground hover:text-primary"
+                      onClick={() => {
+                        if (onObjectClick) {
+                          onObjectClick(obj);
+                        }
+                      }}
+                    >
+                      {obj.name}
+                    </Button>
+                  ))}
+                </div>
               </div>
             )}
           </div>
