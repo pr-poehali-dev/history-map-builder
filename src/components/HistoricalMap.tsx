@@ -98,7 +98,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
     legend.addTo(map);
 
     if (onResetZoom) {
-      const resetButton = L.control({ position: 'bottomright' });
+      const resetButton = L.control({ position: 'topright' });
       resetButton.onAdd = () => {
         const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
         div.innerHTML = '<button id="reset-zoom-btn" style="background: white; border: none; padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 500; color: #2C3E50; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Сбросить масштаб</button>';
