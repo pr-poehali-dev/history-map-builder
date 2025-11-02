@@ -72,7 +72,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
                 </div>
                 {map.description && (
                   <div className="p-3 md:p-4">
-                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{map.description}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed text-justify">{map.description}</p>
                   </div>
                 )}
               </Card>
