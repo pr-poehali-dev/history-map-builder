@@ -70,6 +70,11 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
                     <p className="text-xs md:text-sm opacity-90">{map.period}</p>
                   </div>
                 </div>
+                {map.description && (
+                  <div className="p-3 md:p-4">
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{map.description}</p>
+                  </div>
+                )}
               </Card>
             ))}
           </div>

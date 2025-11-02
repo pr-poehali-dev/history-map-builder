@@ -31,4 +31,5 @@ export type MapInfo = {
   minYear: number;
   maxYear: number;
   image: string;
+  description?: string;
 };
