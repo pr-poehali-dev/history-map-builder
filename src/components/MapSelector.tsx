@@ -24,21 +24,13 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             </div>
           </Card>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50">
-            <div className="flex flex-col items-center gap-3 md:gap-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
-                <img 
-                  src="https://cdn.poehali.dev/files/c139dabc-3851-42aa-b3be-89ec941aaa12.png" 
-                  alt="Эмблема"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="text-base md:text-lg font-semibold mb-1">Редактор карт</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">Создание и редактирование</p>
-              </div>
-            </div>
-          </Card>
+          <div className="flex items-center justify-center p-4 md:p-6">
+            <img 
+              src="https://cdn.poehali.dev/files/ab18a25b-873c-40e0-aebd-8e3038ae7757.png" 
+              alt="Эмблема"
+              className="w-32 h-32 md:w-40 md:h-40 object-contain"
+            />
+          </div>
 
           <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50">
             <div className="flex flex-col items-center gap-3 md:gap-4">
