@@ -10,9 +10,9 @@ type MapSelectorProps = {
 const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
   return (
     <div className="flex-1 flex items-start md:items-center justify-center p-4 md:p-8 overflow-y-auto">
-      <div className="max-w-5xl w-full space-y-3 md:space-y-4 pt-4 md:pt-0">
+      <div className="max-w-5xl w-full space-y-2 md:space-y-2 pt-4 md:pt-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-start">
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center h-fit">
+          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center h-fit mt-8 md:mt-12">
             <div className="flex flex-col items-center gap-3 md:gap-4">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <Icon name="Map" className="text-primary" size={24} />
@@ -32,7 +32,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             />
           </div>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50 h-fit">
+          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50 h-fit mt-8 md:mt-12">
             <div className="flex flex-col items-center gap-3 md:gap-4">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <Icon name="BookOpen" className="text-primary" size={24} />
