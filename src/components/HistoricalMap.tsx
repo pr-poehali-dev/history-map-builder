@@ -99,7 +99,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         </div>
         <div style="display: flex; align-items: center; gap: ${gap};">
           <span style="width: ${dotSize}; height: ${dotSize}; background: #228B22; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
-          <span>Украинцы</span>
+          <span>Малороссы</span>
         </div>
       `;
       return div;
