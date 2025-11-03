@@ -26,8 +26,12 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
 
           <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50">
             <div className="flex flex-col items-center gap-3 md:gap-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Icon name="PenTool" className="text-primary" size={24} />
+              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+                <img 
+                  src="https://cdn.poehali.dev/files/c139dabc-3851-42aa-b3be-89ec941aaa12.png" 
+                  alt="Эмблема"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-base md:text-lg font-semibold mb-1">Редактор карт</h3>
