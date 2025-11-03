@@ -92,8 +92,7 @@ const ObjectDialog = ({
                               <span className="text-[10px] md:text-xs font-medium text-primary">{event.date}</span>
                               <span className="text-[10px] md:text-xs text-muted-foreground">{event.category}</span>
                             </div>
-                            <h5 className="text-xs md:text-sm font-medium mb-1">{event.title}</h5>
-                            <p className="text-[10px] md:text-xs text-muted-foreground">{event.description}</p>
+                            <h5 className="text-xs md:text-sm font-medium">{event.title}</h5>
                           </div>
                         ))}
                     </div>
