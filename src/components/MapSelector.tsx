@@ -28,7 +28,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             <img 
               src="https://cdn.poehali.dev/files/ab18a25b-873c-40e0-aebd-8e3038ae7757.png" 
               alt="Эмблема"
-              className="w-32 h-32 md:w-40 md:h-40 object-contain"
+              className="w-[13.6rem] h-[13.6rem] md:w-[17rem] md:h-[17rem] object-contain"
             />
           </div>
 
