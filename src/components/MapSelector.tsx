@@ -10,7 +10,7 @@ type MapSelectorProps = {
 const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
   return (
     <div className="flex-1 flex items-start md:items-center justify-center p-4 md:p-8 overflow-y-auto">
-      <div className="max-w-5xl w-full space-y-6 md:space-y-8 pt-4 md:pt-0">
+      <div className="max-w-5xl w-full space-y-3 md:space-y-4 pt-4 md:pt-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-start">
           <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center h-fit">
             <div className="flex flex-col items-center gap-3 md:gap-4">
