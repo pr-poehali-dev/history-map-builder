@@ -2,6 +2,13 @@ import { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+type NamePeriod = {
+  name: string;
+  fromYear: number;
+  toYear: number;
+  color?: string;
+};
+
 type MapObject = {
   id: string;
   name: string;
@@ -11,6 +18,8 @@ type MapObject = {
   activeFrom: number;
   activeTo: number;
   color?: string;
+  namePeriods?: NamePeriod[];
+  splitColor?: boolean;
 };
 
 type HistoricalMapProps = {
@@ -123,9 +132,25 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
 
     activeObjects.forEach(obj => {
       const isSelected = selectedObject?.id === obj.id;
-      const color = obj.color || (isSelected ? '#2C3E50' : '#34495E');
       
-      const displayName = obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name;
+      let displayName = obj.name;
+      let color = obj.color || (isSelected ? '#2C3E50' : '#34495E');
+      
+      if (obj.id === 'don-2' && currentDate >= 1805) {
+        displayName = 'Старочеркасская';
+      }
+      
+      if (obj.namePeriods) {
+        const currentPeriod = obj.namePeriods.find(
+          p => currentDate >= p.fromYear && currentDate <= p.toYear
+        );
+        if (currentPeriod) {
+          displayName = currentPeriod.name;
+          if (currentPeriod.color && currentPeriod.color !== 'split') {
+            color = currentPeriod.color;
+          }
+        }
+      }
       
       let icon;
       if (obj.id === 'don-13') {
@@ -140,6 +165,51 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
           iconAnchor: [16, 16],
           popupAnchor: [0, -16],
         });
+      } else if (obj.splitColor && obj.namePeriods) {
+        const currentPeriod = obj.namePeriods.find(
+          p => currentDate >= p.fromYear && currentDate <= p.toYear
+        );
+        if (currentPeriod && currentPeriod.color === 'split') {
+          icon = L.divIcon({
+            html: `
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <clipPath id="half-circle-left-${obj.id}">
+                      <rect x="0" y="0" width="12" height="24" />
+                    </clipPath>
+                    <clipPath id="half-circle-right-${obj.id}">
+                      <rect x="12" y="0" width="12" height="24" />
+                    </clipPath>
+                  </defs>
+                  <circle cx="12" cy="12" r="8" fill="#DC143C" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-left-${obj.id})"/>
+                  <circle cx="12" cy="12" r="8" fill="#228B22" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-right-${obj.id})"/>
+                  <circle cx="12" cy="12" r="4" fill="#DC143C" clip-path="url(#half-circle-left-${obj.id})"/>
+                  <circle cx="12" cy="12" r="4" fill="#228B22" clip-path="url(#half-circle-right-${obj.id})"/>
+                </svg>
+              </div>
+            `,
+            className: 'custom-marker',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12],
+          });
+        } else {
+          icon = L.divIcon({
+            html: `
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="4" fill="${color}"/>
+                </svg>
+              </div>
+            `,
+            className: 'custom-marker',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12],
+          });
+        }
       } else {
         icon = L.divIcon({
           html: `

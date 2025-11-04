@@ -1,5 +1,12 @@
 export type TimeUnit = 'day' | 'month' | 'year' | 'decade' | '50years' | 'century';
 
+export type NamePeriod = {
+  name: string;
+  fromYear: number;
+  toYear: number;
+  color?: string;
+};
+
 export type MapObject = {
   id: string;
   name: string;
@@ -12,6 +19,8 @@ export type MapObject = {
   image?: string;
   imageCaption?: string;
   customDate?: string;
+  namePeriods?: NamePeriod[];
+  splitColor?: boolean;
 };
 
 export type Event = {
