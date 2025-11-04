@@ -134,7 +134,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
 2.	Сабельников Д. А. История возникновения города Мариуполя [Электронный ресурс]. – Режим доступа: https://masters.donntu.ru/2011/fkita/sabelnikov/ind/index.htm?ysclid=mhkbyhdgx8818922904 (дата обращения: 04.11.2025).
 3.	МАРИУПОЛЬ • Большая российская энциклопедия - электронная версия [Электронный ресурс]. – Режим доступа: https://old.bigenc.ru/geography/text/6076119?ysclid=mhkaua5ghb640905970 (дата обращения: 04.11.2025).`, 
         activeFrom: 1585, 
-        activeTo: 1965, 
+        activeTo: 1965,
+        customDate: 'Город получил название Мариуполь 24 марта 1780 года', 
         namePeriods: [
           { name: 'Кальмиус (Домаха)', fromYear: 1585, toYear: 1777, color: '#00008B' },
           { name: 'Павловск', fromYear: 1778, toYear: 1778, color: '#00008B' },
