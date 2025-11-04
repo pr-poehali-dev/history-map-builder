@@ -141,7 +141,7 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Павловск', fromYear: 1778, toYear: 1779, color: '#00008B' },
           { name: 'Мариуполь', fromYear: 1780, toYear: 1859, color: '#00BFFF' },
           { name: 'Мариуполь', fromYear: 1860, toYear: 1947, color: 'split' },
-          { name: 'Жданов', fromYear: 1948, toYear: 1988, color: '#DC143C' },
+          { name: 'Жданов', fromYear: 1948, toYear: 1988, color: 'split' },
           { name: 'Мариуполь', fromYear: 1989, toYear: 1965, color: 'split' }
         ],
         splitColor: true,
