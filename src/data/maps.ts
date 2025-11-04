@@ -138,8 +138,9 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         customDate: 'Город получил название Мариуполь 24 марта 1780 года', 
         namePeriods: [
           { name: 'Кальмиус (Домаха)', fromYear: 1585, toYear: 1777, color: '#00008B' },
-          { name: 'Павловск', fromYear: 1778, toYear: 1778, color: '#00008B' },
-          { name: 'Мариуполь', fromYear: 1779, toYear: 1947, color: 'split' },
+          { name: 'Павловск', fromYear: 1778, toYear: 1779, color: '#00008B' },
+          { name: 'Мариуполь', fromYear: 1780, toYear: 1859, color: '#00BFFF' },
+          { name: 'Мариуполь', fromYear: 1860, toYear: 1947, color: 'split' },
           { name: 'Жданов', fromYear: 1948, toYear: 1988, color: '#DC143C' },
           { name: 'Мариуполь', fromYear: 1989, toYear: 1965, color: 'split' }
         ],
