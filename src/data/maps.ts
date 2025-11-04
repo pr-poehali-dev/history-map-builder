@@ -143,8 +143,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Мариуполь', fromYear: 1989, toYear: 1965, color: 'split' }
         ],
         splitColor: true,
-        image: 'https://cdn.poehali.dev/files/a04ba332-87b3-49a6-aefb-cb5204222bc3.png',
-        imageCaption: 'Фрагмент диорамы «Крепость Домаха-Кальмиус», XVII-XVIII века. Донецкий областной краеведческий музей'
+        image: 'https://cdn.poehali.dev/files/0253d299-d3c8-4bfe-9d44-e7b9dd79f384.png',
+        imageCaption: 'Мариуполь, площадь Театральная, 2 мая 2021 г.'
       }
     ],
     events: [
