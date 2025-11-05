@@ -59,6 +59,18 @@ const Index = () => {
           <h1 className="text-lg md:text-2xl font-bold">Интерактивные исторические карты</h1>
           <div className="flex items-center gap-3 md:gap-4">
             <a 
+              href="https://donstu.ru/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-shrink-0 hover:opacity-80 transition-opacity"
+            >
+              <img 
+                src="https://cdn.poehali.dev/files/771b45e7-4463-4630-aad4-88dc6688fdd9.png" 
+                alt="ДГТУ" 
+                className="h-[62px] md:h-[84px] w-auto"
+              />
+            </a>
+            <a 
               href="https://donstu.ru/university/faculties/social-humanitarian/" 
               target="_blank" 
               rel="noopener noreferrer"
