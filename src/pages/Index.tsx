@@ -55,7 +55,21 @@ const Index = () => {
   return (
     <div className="h-screen flex flex-col bg-background">
       <header className="bg-primary text-primary-foreground p-3 md:p-4 shadow-md">
-        <h1 className="text-lg md:text-2xl font-bold">Интерактивные исторические карты</h1>
+        <div className="flex items-center justify-between gap-4">
+          <h1 className="text-lg md:text-2xl font-bold">Интерактивные исторические карты</h1>
+          <a 
+            href="https://donstu.ru/university/faculties/social-humanitarian/dokumentovedeniye-i-yazykovaya-kommunikatsiya/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex-shrink-0 hover:opacity-80 transition-opacity"
+          >
+            <img 
+              src="https://cdn.poehali.dev/files/b72205f8-b11b-4b2a-990f-44377e2d0012.png" 
+              alt="ДГТУ - Документоведение и языковая коммуникация" 
+              className="h-12 md:h-16 w-auto"
+            />
+          </a>
+        </div>
       </header>
 
       <div className="flex-1 flex min-h-0">
