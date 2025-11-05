@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -32,18 +32,22 @@ type HistoricalMapProps = {
 };
 
 const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
+  const mapRef = useRef<L.Map | null>(null);
+  const markersRef = useRef<(L.Marker | L.Tooltip)[]>([]);
+  const tileLayerRef = useRef<L.TileLayer | null>(null);
+
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom && currentDate <= obj.activeTo
     );
 
-    let center: [number, number] = [47.2357, 39.7015];
-    let zoom = 7;
+    let defaultCenter: [number, number] = [47.2357, 39.7015];
+    let defaultZoom = 7;
 
     if (activeObjects.length > 0) {
       const bounds = L.latLngBounds(activeObjects.map(obj => [obj.lat, obj.lng]));
       const centerLatLng = bounds.getCenter();
-      center = [centerLatLng.lat, centerLatLng.lng];
+      defaultCenter = [centerLatLng.lat, centerLatLng.lng];
       
       const northEast = bounds.getNorthEast();
       const southWest = bounds.getSouthWest();
@@ -51,19 +55,24 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       const lngDiff = Math.abs(northEast.lng - southWest.lng);
       const maxDiff = Math.max(latDiff, lngDiff);
       
-      if (maxDiff < 0.5) zoom = 10;
-      else if (maxDiff < 1) zoom = 9;
-      else if (maxDiff < 2) zoom = 8;
-      else if (maxDiff < 5) zoom = 7;
-      else zoom = 6;
+      if (maxDiff < 0.5) defaultZoom = 10;
+      else if (maxDiff < 1) defaultZoom = 9;
+      else if (maxDiff < 2) defaultZoom = 8;
+      else if (maxDiff < 5) defaultZoom = 7;
+      else defaultZoom = 6;
     }
 
-    const map = L.map('map-container', {
-      center,
-      zoom,
-      zoomControl: true,
-      attributionControl: false,
-    });
+    if (!mapRef.current) {
+      const map = L.map('map-container', {
+        center: defaultCenter,
+        zoom: defaultZoom,
+        zoomControl: true,
+        attributionControl: false,
+      });
+      mapRef.current = map;
+    }
+
+    const map = mapRef.current;
 
     const tileUrls = {
       roadmap: 'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
@@ -71,16 +80,28 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       terrain: 'https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',
     };
 
-    L.tileLayer(tileUrls[mapStyle], {
+    if (tileLayerRef.current) {
+      tileLayerRef.current.remove();
+    }
+    
+    tileLayerRef.current = L.tileLayer(tileUrls[mapStyle], {
       attribution: '',
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     }).addTo(map);
+
+    markersRef.current.forEach(m => m.remove());
+    markersRef.current = [];
+
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Control) {
+        map.removeControl(layer as unknown as L.Control);
+      }
+    });
 
     const legend = L.control({ position: 'bottomleft' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');
       const isMobile = window.innerWidth < 768;
-      const scale = isMobile ? 0.7 : 1;
       const padding = isMobile ? '8px' : '12px';
       const fontSize = isMobile ? '9px' : '13px';
       const lineHeight = isMobile ? '1.4' : '1.8';
@@ -126,14 +147,12 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
         div.innerHTML = '<button id="reset-zoom-btn" style="background: white; border: none; padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 500; color: #2C3E50; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Сбросить масштаб</button>';
         div.onclick = () => {
-          map.setView(center, zoom);
+          map.setView(defaultCenter, defaultZoom);
         };
         return div;
       };
       resetButton.addTo(map);
     }
-
-    const markers: (L.Marker | L.Tooltip)[] = [];
 
     activeObjects.forEach(obj => {
       const isSelected = selectedObject?.id === obj.id;
@@ -267,14 +286,18 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
         .addTo(map);
 
-      markers.push(marker, label);
+      markersRef.current.push(marker, label);
     });
-
-    return () => {
-      markers.forEach(m => m.remove());
-      map.remove();
-    };
   }, [objects, currentDate, selectedObject, onObjectClick, mapStyle]);
+
+  useEffect(() => {
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  }, []);
 
   return <div id="map-container" style={{ height: '100%', width: '100%' }} />;
 };
