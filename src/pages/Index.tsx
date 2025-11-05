@@ -55,26 +55,14 @@ const Index = () => {
   return (
     <div className="h-screen flex flex-col bg-background">
       <header className="bg-primary text-primary-foreground p-3 md:p-4 shadow-md">
-        <div className="flex items-center justify-between gap-4">
-          <h1 className="text-lg md:text-2xl font-bold">Интерактивные исторические карты</h1>
-          <div className="flex items-center gap-3 md:gap-4">
-            <a 
-              href="https://donstu.ru/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex-shrink-0 hover:opacity-80 transition-opacity"
-            >
-              <img 
-                src="https://cdn.poehali.dev/files/771b45e7-4463-4630-aad4-88dc6688fdd9.png" 
-                alt="ДГТУ" 
-                className="h-[62px] md:h-[84px] w-auto"
-              />
-            </a>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+          <h1 className="text-lg md:text-2xl font-bold text-center md:text-left">Интерактивные исторические карты</h1>
+          <div className="flex items-center justify-center gap-3 md:gap-4">
             <a 
               href="https://donstu.ru/university/faculties/social-humanitarian/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex-shrink-0 hover:opacity-80 transition-opacity"
+              className="flex-shrink-0 hover:opacity-80 transition-opacity order-1 md:order-2"
             >
               <img 
                 src="https://cdn.poehali.dev/files/5508b17c-e6e4-498d-82ed-868c368743a8.png" 
@@ -83,10 +71,22 @@ const Index = () => {
               />
             </a>
             <a 
+              href="https://donstu.ru/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-shrink-0 hover:opacity-80 transition-opacity order-2 md:order-1"
+            >
+              <img 
+                src="https://cdn.poehali.dev/files/771b45e7-4463-4630-aad4-88dc6688fdd9.png" 
+                alt="ДГТУ" 
+                className="h-[62px] md:h-[84px] w-auto"
+              />
+            </a>
+            <a 
               href="https://donstu.ru/university/faculties/social-humanitarian/dokumentovedeniye-i-yazykovaya-kommunikatsiya/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex-shrink-0 hover:opacity-80 transition-opacity"
+              className="flex-shrink-0 hover:opacity-80 transition-opacity order-3"
             >
               <img 
                 src="https://cdn.poehali.dev/files/b72205f8-b11b-4b2a-990f-44377e2d0012.png" 
