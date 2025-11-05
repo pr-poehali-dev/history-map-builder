@@ -62,6 +62,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       center,
       zoom,
       zoomControl: true,
+      attributionControl: false,
     });
 
     const tileUrls = {
@@ -71,7 +72,7 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
     };
 
     L.tileLayer(tileUrls[mapStyle], {
-      attribution: '&copy; Google Maps',
+      attribution: '',
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     }).addTo(map);
 
