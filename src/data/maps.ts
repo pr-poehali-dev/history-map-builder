@@ -3,7 +3,7 @@ import { MapInfo, MapObject, Event } from '@/types/map';
 export const maps: MapInfo[] = [
   { 
     id: 'don', 
-    name: 'История Донского региона', 
+    name: 'История Дона и Приазовья', 
     period: '1540-1965', 
     minYear: 1540, 
     maxYear: 1965, 
