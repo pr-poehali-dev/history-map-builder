@@ -147,6 +147,218 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         splitColor: true,
         image: 'https://cdn.poehali.dev/files/0253d299-d3c8-4bfe-9d44-e7b9dd79f384.png',
         imageCaption: 'Мариуполь, площадь Театральная, 2 мая 2021 г.'
+      },
+      { 
+        id: 'don-15', 
+        name: 'Темерницкая таможня', 
+        lat: 47.212771, 
+        lng: 39.706386, 
+        info: '', 
+        activeFrom: 1749, 
+        activeTo: 1795,
+        color: 'split',
+        splitColor: true
+      },
+      { 
+        id: 'don-16', 
+        name: 'Монастырский', 
+        lat: 47.248740, 
+        lng: 39.963468, 
+        info: '', 
+        activeFrom: 1593, 
+        activeTo: 1642,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-17', 
+        name: 'Стыдное Имя', 
+        lat: 47.251484, 
+        lng: 39.865517, 
+        info: '', 
+        activeFrom: 1570, 
+        activeTo: 1642,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-18', 
+        name: 'Красный Сулин', 
+        lat: 47.893442, 
+        lng: 40.057674, 
+        info: '', 
+        activeFrom: 1797, 
+        activeTo: 1965,
+        customDate: 'С 1926 года - Красный Сулин',
+        namePeriods: [
+          { name: 'Сулин', fromYear: 1797, toYear: 1925, color: '#228B22' },
+          { name: 'Красный Сулин', fromYear: 1926, toYear: 1965, color: '#DC143C' }
+        ]
+      },
+      { 
+        id: 'don-19', 
+        name: 'Шахты', 
+        lat: 47.709213, 
+        lng: 40.215293, 
+        info: '', 
+        activeFrom: 1867, 
+        activeTo: 1965,
+        customDate: 'С 1881 года - Александровск-Грушевский, с 1920 года - Шахты',
+        namePeriods: [
+          { name: 'Грушевская', fromYear: 1867, toYear: 1880, color: '#00008B' },
+          { name: 'Александровск-Грушевский', fromYear: 1881, toYear: 1919, color: '#DC143C' },
+          { name: 'Шахты', fromYear: 1920, toYear: 1965, color: '#DC143C' }
+        ]
+      },
+      { 
+        id: 'don-20', 
+        name: 'Каменск-Шахтинский', 
+        lat: 48.323077, 
+        lng: 40.269424, 
+        info: '', 
+        activeFrom: 1671, 
+        activeTo: 1965,
+        customDate: 'С 1927 года - Каменск, с 1929 года - Каменск-Шахтинский',
+        namePeriods: [
+          { name: 'Каменская', fromYear: 1671, toYear: 1926, color: '#00008B' },
+          { name: 'Каменск', fromYear: 1927, toYear: 1928, color: '#DC143C' },
+          { name: 'Каменск-Шахтинский', fromYear: 1929, toYear: 1965, color: '#DC143C' }
+        ]
+      },
+      { 
+        id: 'don-21', 
+        name: 'Милютинская', 
+        lat: 48.629041, 
+        lng: 41.672173, 
+        info: '', 
+        activeFrom: 1876, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-22', 
+        name: 'Нижний Чир', 
+        lat: 48.359373, 
+        lng: 43.085947, 
+        info: '', 
+        activeFrom: 1671, 
+        activeTo: 1965,
+        customDate: 'С 1960 года - Нижний Чир',
+        namePeriods: [
+          { name: 'Нижне-Чирская', fromYear: 1671, toYear: 1959, color: '#00008B' },
+          { name: 'Нижний Чир', fromYear: 1960, toYear: 1965, color: '#00008B' }
+        ]
+      },
+      { 
+        id: 'don-23', 
+        name: 'Кашары', 
+        lat: 49.038789, 
+        lng: 41.006910, 
+        info: '', 
+        activeFrom: 1790, 
+        activeTo: 1965,
+        customDate: 'С 1843 года - Кашары',
+        namePeriods: [
+          { name: 'Верхне-Ольховая', fromYear: 1790, toYear: 1842, color: '#00008B' },
+          { name: 'Кашары', fromYear: 1843, toYear: 1965, color: '#00008B' }
+        ]
+      },
+      { 
+        id: 'don-24', 
+        name: 'Серафимович', 
+        lat: 49.585750, 
+        lng: 42.729636, 
+        info: '', 
+        activeFrom: 1589, 
+        activeTo: 1965,
+        customDate: 'С 1933 года - Серафимович',
+        namePeriods: [
+          { name: 'Усть-Медведицкая', fromYear: 1589, toYear: 1932, color: '#00008B' },
+          { name: 'Серафимович', fromYear: 1933, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
+      },
+      { 
+        id: 'don-25', 
+        name: 'Вёшенская', 
+        lat: 49.627777, 
+        lng: 41.723795, 
+        info: '', 
+        activeFrom: 1571, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-26', 
+        name: 'Урюпинск', 
+        lat: 50.797637, 
+        lng: 41.992111, 
+        info: '', 
+        activeFrom: 1618, 
+        activeTo: 1965,
+        customDate: 'С 1929 года - Урюпинск',
+        namePeriods: [
+          { name: 'Урюпинская', fromYear: 1618, toYear: 1928, color: '#00008B' },
+          { name: 'Урюпинск', fromYear: 1929, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
+      },
+      { 
+        id: 'don-27', 
+        name: 'Калач-на-Дону', 
+        lat: 48.688367, 
+        lng: 43.530455, 
+        info: '', 
+        activeFrom: 1708, 
+        activeTo: 1965,
+        customDate: 'С 1951 года - Калач-на-Дону',
+        namePeriods: [
+          { name: 'Калач', fromYear: 1708, toYear: 1950, color: '#00008B' },
+          { name: 'Калач-на-Дону', fromYear: 1951, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
+      },
+      { 
+        id: 'don-28', 
+        name: 'Миллерово', 
+        lat: 48.928300, 
+        lng: 40.393224, 
+        info: '', 
+        activeFrom: 1786, 
+        activeTo: 1965,
+        customDate: 'С 1926 года - Миллерово',
+        namePeriods: [
+          { name: 'Миллерово', fromYear: 1786, toYear: 1925, color: '#00008B' },
+          { name: 'Миллерово', fromYear: 1926, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
+      },
+      { 
+        id: 'don-29', 
+        name: 'Цимлянск', 
+        lat: 47.648306, 
+        lng: 42.102189, 
+        info: '', 
+        activeFrom: 1672, 
+        activeTo: 1965,
+        customDate: 'С 1950 года - Цимлянск',
+        namePeriods: [
+          { name: 'Цимла', fromYear: 1672, toYear: 1949, color: '#00008B' },
+          { name: 'Цимлянск', fromYear: 1950, toYear: 1965, color: '#DC143C' }
+        ]
+      },
+      { 
+        id: 'don-30', 
+        name: 'Константиновская', 
+        lat: 47.578524, 
+        lng: 41.096349, 
+        info: '', 
+        activeFrom: 1592, 
+        activeTo: 1965,
+        customDate: 'С 1864 года - Константиновская',
+        namePeriods: [
+          { name: 'Бабская', fromYear: 1592, toYear: 1863, color: '#00008B' },
+          { name: 'Константиновская', fromYear: 1864, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
       }
     ],
     events: [
