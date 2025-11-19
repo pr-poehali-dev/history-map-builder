@@ -157,7 +157,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         activeFrom: 1749, 
         activeTo: 1795,
         color: 'split',
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-16', 
@@ -274,7 +275,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Усть-Медведицкая', fromYear: 1589, toYear: 1932, color: '#00008B' },
           { name: 'Серафимович', fromYear: 1933, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-25', 
@@ -299,7 +301,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Урюпинская', fromYear: 1618, toYear: 1928, color: '#00008B' },
           { name: 'Урюпинск', fromYear: 1929, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-27', 
@@ -314,7 +317,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Калач', fromYear: 1708, toYear: 1950, color: '#00008B' },
           { name: 'Калач-на-Дону', fromYear: 1951, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-28', 
@@ -329,7 +333,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Миллерово', fromYear: 1786, toYear: 1925, color: '#00008B' },
           { name: 'Миллерово', fromYear: 1926, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-29', 
@@ -358,7 +363,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Бабская', fromYear: 1592, toYear: 1863, color: '#00008B' },
           { name: 'Константиновская', fromYear: 1864, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-31', 
@@ -393,7 +399,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Великокняжеская', fromYear: 1875, toYear: 1924, color: '#00008B' },
           { name: 'Пролетарская', fromYear: 1925, toYear: 1965, color: 'split' }
         ],
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-34', 
@@ -498,7 +505,8 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         activeFrom: 1769, 
         activeTo: 1965,
         color: 'split',
-        splitColor: true
+        splitColor: true,
+        customColors: { left: '#00008B', right: '#DC143C' }
       },
       { 
         id: 'don-44', 

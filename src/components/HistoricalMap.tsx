@@ -20,6 +20,7 @@ type MapObject = {
   color?: string;
   namePeriods?: NamePeriod[];
   splitColor?: boolean;
+  customColors?: { left: string; right: string };
 };
 
 type HistoricalMapProps = {
@@ -170,11 +171,14 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
           iconAnchor: [16, 16],
           popupAnchor: [0, -16],
         });
-      } else if (obj.splitColor && obj.namePeriods) {
-        const currentPeriod = obj.namePeriods.find(
-          p => currentDate >= p.fromYear && currentDate <= p.toYear
-        );
-        if (currentPeriod && currentPeriod.color === 'split') {
+      } else if (obj.splitColor) {
+        const shouldShowSplit = obj.namePeriods 
+          ? obj.namePeriods.some(p => currentDate >= p.fromYear && currentDate <= p.toYear && p.color === 'split')
+          : obj.color === 'split';
+
+        if (shouldShowSplit) {
+          const leftColor = obj.customColors?.left || '#DC143C';
+          const rightColor = obj.customColors?.right || '#228B22';
           icon = L.divIcon({
             html: `
               <div style="display: flex; flex-direction: column; align-items: center;">
@@ -187,10 +191,10 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
                       <rect x="12" y="0" width="12" height="24" />
                     </clipPath>
                   </defs>
-                  <circle cx="12" cy="12" r="8" fill="#DC143C" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-left-${obj.id})"/>
-                  <circle cx="12" cy="12" r="8" fill="#228B22" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-right-${obj.id})"/>
-                  <circle cx="12" cy="12" r="4" fill="#DC143C" clip-path="url(#half-circle-left-${obj.id})"/>
-                  <circle cx="12" cy="12" r="4" fill="#228B22" clip-path="url(#half-circle-right-${obj.id})"/>
+                  <circle cx="12" cy="12" r="8" fill="${leftColor}" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-left-${obj.id})"/>
+                  <circle cx="12" cy="12" r="8" fill="${rightColor}" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-right-${obj.id})"/>
+                  <circle cx="12" cy="12" r="4" fill="${leftColor}" clip-path="url(#half-circle-left-${obj.id})"/>
+                  <circle cx="12" cy="12" r="4" fill="${rightColor}" clip-path="url(#half-circle-right-${obj.id})"/>
                 </svg>
               </div>
             `,

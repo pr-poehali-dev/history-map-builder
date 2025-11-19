@@ -21,6 +21,7 @@ export type MapObject = {
   customDate?: string;
   namePeriods?: NamePeriod[];
   splitColor?: boolean;
+  customColors?: { left: string; right: string };
 };
 
 export type Event = {
