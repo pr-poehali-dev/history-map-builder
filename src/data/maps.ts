@@ -359,6 +359,191 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
           { name: 'Константиновская', fromYear: 1864, toYear: 1965, color: 'split' }
         ],
         splitColor: true
+      },
+      { 
+        id: 'don-31', 
+        name: 'Семикаракорская', 
+        lat: 47.518436, 
+        lng: 40.810834, 
+        info: '', 
+        activeFrom: 1594, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-32', 
+        name: 'Манычская', 
+        lat: 47.231488, 
+        lng: 40.246682, 
+        info: '', 
+        activeFrom: 1593, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-33', 
+        name: 'Пролетарская', 
+        lat: 46.704251, 
+        lng: 41.726891, 
+        info: '', 
+        activeFrom: 1875, 
+        activeTo: 1965,
+        customDate: 'С 1925 года - Пролетарская',
+        namePeriods: [
+          { name: 'Великокняжеская', fromYear: 1875, toYear: 1924, color: '#00008B' },
+          { name: 'Пролетарская', fromYear: 1925, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true
+      },
+      { 
+        id: 'don-34', 
+        name: 'Мечётинская', 
+        lat: 46.776852, 
+        lng: 40.458583, 
+        info: '', 
+        activeFrom: 1809, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-35', 
+        name: 'Егорлыкская', 
+        lat: 46.565634, 
+        lng: 40.659476, 
+        info: '', 
+        activeFrom: 1809, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-36', 
+        name: 'Самарское', 
+        lat: 46.937784, 
+        lng: 39.687347, 
+        info: '', 
+        activeFrom: 1770, 
+        activeTo: 1965,
+        color: '#DC143C'
+      },
+      { 
+        id: 'don-37', 
+        name: 'Порт-Катон', 
+        lat: 46.878848, 
+        lng: 38.755122, 
+        info: '', 
+        activeFrom: 1801, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-38', 
+        name: 'Ольгинская', 
+        lat: 47.187184, 
+        lng: 39.949127, 
+        info: '', 
+        activeFrom: 1809, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-39', 
+        name: 'Родионово-Несветайская', 
+        lat: 47.615753, 
+        lng: 39.703859, 
+        info: '', 
+        activeFrom: 1802, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-40', 
+        name: 'Синявское', 
+        lat: 47.278095, 
+        lng: 39.282465, 
+        info: '', 
+        activeFrom: 1770, 
+        activeTo: 1965,
+        customDate: 'С 1934 года - Синявское',
+        namePeriods: [
+          { name: 'Синявский', fromYear: 1770, toYear: 1933, color: '#00008B' },
+          { name: 'Синявское', fromYear: 1934, toYear: 1965, color: '#00008B' }
+        ]
+      },
+      { 
+        id: 'don-41', 
+        name: 'Недвиговка', 
+        lat: 47.268730, 
+        lng: 39.351952, 
+        info: '', 
+        activeFrom: 1793, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-42', 
+        name: 'Петровка', 
+        lat: 47.486035, 
+        lng: 39.438639, 
+        info: '', 
+        activeFrom: 1846, 
+        activeTo: 1965,
+        color: '#00008B'
+      },
+      { 
+        id: 'don-43', 
+        name: 'Покровское', 
+        lat: 47.415568, 
+        lng: 38.896503, 
+        info: '', 
+        activeFrom: 1769, 
+        activeTo: 1965,
+        color: 'split',
+        splitColor: true
+      },
+      { 
+        id: 'don-44', 
+        name: 'Амвросиевка', 
+        lat: 47.796398, 
+        lng: 38.478550, 
+        info: '', 
+        activeFrom: 1869, 
+        activeTo: 1965,
+        color: 'split',
+        splitColor: true,
+        customColors: { left: '#DC143C', right: '#228B22' }
+      },
+      { 
+        id: 'don-45', 
+        name: 'Павлополь', 
+        lat: 47.264047, 
+        lng: 37.781961, 
+        info: '', 
+        activeFrom: 1838, 
+        activeTo: 1965,
+        customDate: 'С 1890 года - Павлополь',
+        namePeriods: [
+          { name: 'Красново', fromYear: 1838, toYear: 1889, color: 'split' },
+          { name: 'Павлополь', fromYear: 1890, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true,
+        customColors: { left: '#DC143C', right: '#228B22' }
+      },
+      { 
+        id: 'don-46', 
+        name: 'Новоазовск', 
+        lat: 47.113967, 
+        lng: 38.082612, 
+        info: '', 
+        activeFrom: 1838, 
+        activeTo: 1965,
+        customDate: 'С 1923 года - Будённовская, с 1959 года - Новоазовск',
+        namePeriods: [
+          { name: 'Новониколаевская', fromYear: 1838, toYear: 1922, color: 'split' },
+          { name: 'Будённовская', fromYear: 1923, toYear: 1958, color: 'split' },
+          { name: 'Новоазовск', fromYear: 1959, toYear: 1965, color: 'split' }
+        ],
+        splitColor: true,
+        customColors: { left: '#DC143C', right: '#228B22' }
       }
     ],
     events: [
