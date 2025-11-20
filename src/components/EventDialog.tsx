@@ -34,14 +34,14 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
         <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
           <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {event.image && (
-              <div>
+              <div className="space-y-2">
                 <img 
                   src={event.image} 
                   alt={event.title} 
                   className="w-full rounded-md"
                 />
                 {event.imageCaption && (
-                  <p className="text-xs text-muted-foreground text-center mt-2">{event.imageCaption}</p>
+                  <p className="text-xs text-center text-muted-foreground">{event.imageCaption}</p>
                 )}
               </div>
             )}
