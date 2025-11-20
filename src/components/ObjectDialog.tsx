@@ -27,7 +27,7 @@ const ObjectDialog = ({
 
   return (
     <Dialog open={!!object} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-2xl max-h-[85vh] flex flex-col">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">
             {object.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : object.name}
@@ -36,7 +36,7 @@ const ObjectDialog = ({
             {object.customDate || (object.id === 'don-5' ? 'Первое упоминание: 1571 г.' : `${object.activeFrom}—${object.activeTo}`)}
           </DialogDescription>
         </DialogHeader>
-        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
+        <ScrollArea className="flex-1 -mx-6 px-6">
           <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {object.image && (
               <div className="space-y-2">

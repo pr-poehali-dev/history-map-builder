@@ -24,14 +24,14 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-2xl max-h-[85vh] flex flex-col">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">{event.title}</DialogTitle>
           <DialogDescription className="text-xs md:text-sm">
             {event.date} • {event.category}
           </DialogDescription>
         </DialogHeader>
-        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
+        <ScrollArea className="flex-1 -mx-6 px-6">
           <div className="space-y-3 md:space-y-4 py-2 md:py-4">
             {event.image && (
               <div className="space-y-2">
