@@ -182,7 +182,8 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       const shouldShowCoat = (
         (obj.id === 'don-5' && currentDate >= 1571 && currentDate <= 1592) ||
         (obj.id === 'don-17' && currentDate >= 1593 && currentDate <= 1619) ||
-        (obj.id === 'don-16' && currentDate >= 1620 && currentDate <= 1636)
+        (obj.id === 'don-16' && currentDate >= 1620 && currentDate <= 1636) ||
+        (obj.id === 'don-13' && currentDate >= 1637 && currentDate <= 1641)
       );
 
       if (shouldShowCoat) {
