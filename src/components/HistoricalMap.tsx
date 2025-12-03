@@ -349,20 +349,16 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         onObjectClick(obj);
       });
 
-      if (obj.id !== 'don-26') {
-        const label = L.tooltip({
-          permanent: true,
-          direction: 'bottom',
-          className: 'map-label',
-          offset: [0, 8]
-        })
-          .setLatLng([obj.lat, obj.lng])
-          .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
-          .addTo(map);
-        markers.push(marker, label);
-      } else {
-        markers.push(marker);
-      }
+      const label = L.tooltip({
+        permanent: true,
+        direction: 'bottom',
+        className: 'map-label',
+        offset: [0, 8]
+      })
+        .setLatLng([obj.lat, obj.lng])
+        .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
+        .addTo(map);
+      markers.push(marker, label);
     });
 
     return () => {
