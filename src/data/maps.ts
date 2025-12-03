@@ -314,6 +314,7 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         imageCaption: 'Картина «Темерницкая таможня и крепость Димитрия Ростовского». Художник И.Д. Скворцов. Передана в Ростовский областной музей краеведения 8 декабря 1962 г.',
         activeFrom: 1749, 
         activeTo: 1795,
+        color: 'split',
         splitColor: true,
         customColors: { left: '#00008B', right: '#DC143C' },
         customDate: 'Основана по указу императрицы Елизаветы Петровны в 1749 г.'
@@ -499,7 +500,7 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         customDate: 'Первое упоминание в 1589 г.',
         namePeriods: [
           { name: 'Усть-Медведицкая', fromYear: 1589, toYear: 1932, color: '#00008B' },
-          { name: 'Серафимович', fromYear: 1933, toYear: 1965, color: '#DC143C' }
+          { name: 'Серафимович', fromYear: 1933, toYear: 1965, color: 'split' }
         ],
         splitColor: true,
         customColors: { left: '#00008B', right: '#DC143C' }

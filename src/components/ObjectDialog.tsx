@@ -63,7 +63,7 @@ const ObjectDialog = ({
                 )}
               </div>
             )}
-            <p className="text-xs md:text-sm text-foreground whitespace-pre-line break-words">{object.info}</p>
+            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
             
             {relatedEvents.length > 0 && (
               <>
