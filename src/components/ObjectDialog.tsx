@@ -25,12 +25,25 @@ const ObjectDialog = ({
 }: ObjectDialogProps) => {
   if (!object) return null;
 
+  let displayName = object.name;
+  if (object.id === 'don-2' && currentDate >= 1805) {
+    displayName = 'Старочеркасская';
+  }
+  if (object.nameChanges) {
+    const applicableChange = object.nameChanges
+      .filter(change => currentDate >= change.year)
+      .sort((a, b) => b.year - a.year)[0];
+    if (applicableChange) {
+      displayName = applicableChange.newName;
+    }
+  }
+
   return (
     <Dialog open={!!object} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">
-            {object.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : object.name}
+            {displayName}
           </DialogTitle>
           <DialogDescription className="text-xs md:text-sm">
             {object.customDate || (object.id === 'don-5' ? 'Первое упоминание: 1571 г.' : `${object.activeFrom}—${object.activeTo}`)}

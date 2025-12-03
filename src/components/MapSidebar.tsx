@@ -51,20 +51,34 @@ const MapSidebar = ({
             <div className="space-y-2 pr-2 md:pr-4">
               {mapObjects
                 .filter(obj => currentDate >= obj.activeFrom && currentDate <= obj.activeTo)
-                .map(obj => (
-                  <div
-                    key={obj.id}
-                    className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
-                    onClick={() => onSelectObject(obj)}
-                  >
-                    <h4 className="font-medium text-xs md:text-sm">
-                      {obj.id === 'don-2' && currentDate >= 1805 ? 'Старочеркасская' : obj.name}
-                    </h4>
-                    <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
-                      {obj.activeFrom}—{obj.activeTo}
-                    </p>
-                  </div>
-                ))}
+                .map(obj => {
+                  let displayName = obj.name;
+                  if (obj.id === 'don-2' && currentDate >= 1805) {
+                    displayName = 'Старочеркасская';
+                  }
+                  if (obj.nameChanges) {
+                    const applicableChange = obj.nameChanges
+                      .filter(change => currentDate >= change.year)
+                      .sort((a, b) => b.year - a.year)[0];
+                    if (applicableChange) {
+                      displayName = applicableChange.newName;
+                    }
+                  }
+                  return (
+                    <div
+                      key={obj.id}
+                      className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                      onClick={() => onSelectObject(obj)}
+                    >
+                      <h4 className="font-medium text-xs md:text-sm">
+                        {displayName}
+                      </h4>
+                      <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
+                        {obj.activeFrom}—{obj.activeTo}
+                      </p>
+                    </div>
+                  );
+                })}
             </div>
           </ScrollArea>
         </TabsContent>

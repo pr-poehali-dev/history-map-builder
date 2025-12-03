@@ -103,10 +103,6 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
           <span>Русские</span>
         </div>
         <div style="display: flex; align-items: center; gap: ${gap};">
-          <span style="width: ${dotSize}; height: ${dotSize}; background: linear-gradient(90deg, #00008B 50%, #DC143C 50%); border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
-          <span>Смешанные</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: ${gap};">
           <span style="width: ${dotSize}; height: ${dotSize}; background: #D2B48C; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Армяне</span>
         </div>
