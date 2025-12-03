@@ -45,7 +45,7 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
                 )}
               </div>
             )}
-            <p className="text-xs md:text-sm text-foreground whitespace-pre-line break-words">{event.description}</p>
+            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
             
             {relatedObjects.length > 0 && (
               <div className="pt-3 border-t">
