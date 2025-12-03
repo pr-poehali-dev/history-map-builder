@@ -45,7 +45,9 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
                 )}
               </div>
             )}
-            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
+            <div className="overflow-x-auto md:overflow-x-visible">
+              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
+            </div>
             
             {relatedObjects.length > 0 && (
               <div className="pt-3 border-t">

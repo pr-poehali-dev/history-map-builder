@@ -63,7 +63,9 @@ const ObjectDialog = ({
                 )}
               </div>
             )}
-            <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
+            <div className="overflow-x-auto md:overflow-x-visible">
+              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
+            </div>
             
             {relatedEvents.length > 0 && (
               <>
