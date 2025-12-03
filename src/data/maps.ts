@@ -227,7 +227,9 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[] }> 
         color: '#00008B',
         image: 'https://cdn.poehali.dev/files/dcb23df6-78ab-45a5-b5af-efe5e16d672c.png',
         imageCaption: 'Вид на излучину дона с Успенской церковью города Аксая, 2013 г.',
-        customDate: 'Первое упоминание в 1730 г.'
+        customDate: 'Первое упоминание в 1730 г.',
+        nameChanges: [{ year: 1957, newName: 'Аксай' }],
+        colorChanges: [{ year: 1957, newColor: 'linear-gradient(90deg, #00008B 50%, #DC143C 50%)' }]
       },
       { id: 'don-11', name: 'Кагальницкая', lat: 46.882403, lng: 40.145216, info: 'Казачья станица на реке Кагальник, основана казаками Донского войска как поселение на южных рубежах', activeFrom: 1809, activeTo: 1965, color: '#00008B' },
       { id: 'don-12', name: 'Новобатайск', lat: 46.898803, lng: 39.780816, info: 'Село на левом берегу Дона, основано крестьянами-переселенцами в начале XIX века', activeFrom: 1812, activeTo: 1965, color: '#DC143C' },

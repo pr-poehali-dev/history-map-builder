@@ -21,6 +21,8 @@ type MapObject = {
   namePeriods?: NamePeriod[];
   splitColor?: boolean;
   customColors?: { left: string; right: string };
+  nameChanges?: { year: number; newName: string }[];
+  colorChanges?: { year: number; newColor: string }[];
 };
 
 type HistoricalMapProps = {
@@ -101,6 +103,10 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
           <span>Русские</span>
         </div>
         <div style="display: flex; align-items: center; gap: ${gap};">
+          <span style="width: ${dotSize}; height: ${dotSize}; background: linear-gradient(90deg, #00008B 50%, #DC143C 50%); border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
+          <span>Смешанные</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: ${gap};">
           <span style="width: ${dotSize}; height: ${dotSize}; background: #D2B48C; border-radius: 50%; display: inline-block; flex-shrink: 0;"></span>
           <span>Армяне</span>
         </div>
@@ -144,6 +150,24 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       
       if (obj.id === 'don-2' && currentDate >= 1805) {
         displayName = 'Старочеркасская';
+      }
+      
+      if (obj.nameChanges) {
+        const applicableChange = obj.nameChanges
+          .filter(change => currentDate >= change.year)
+          .sort((a, b) => b.year - a.year)[0];
+        if (applicableChange) {
+          displayName = applicableChange.newName;
+        }
+      }
+      
+      if (obj.colorChanges) {
+        const applicableChange = obj.colorChanges
+          .filter(change => currentDate >= change.year)
+          .sort((a, b) => b.year - a.year)[0];
+        if (applicableChange) {
+          color = applicableChange.newColor;
+        }
       }
       
       if (obj.namePeriods) {
@@ -220,20 +244,49 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
           });
         }
       } else {
-        icon = L.divIcon({
-          html: `
-            <div style="display: flex; flex-direction: column; align-items: center;">
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" fill="${color}"/>
-              </svg>
-            </div>
-          `,
-          className: 'custom-marker',
-          iconSize: [24, 24],
-          iconAnchor: [12, 12],
-          popupAnchor: [0, -12],
-        });
+        const isGradient = color.includes('gradient');
+        if (isGradient) {
+          const gradientId = `gradient-${obj.id}-${currentDate}`;
+          icon = L.divIcon({
+            html: `
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <clipPath id="half-circle-left-${gradientId}">
+                      <rect x="0" y="0" width="12" height="24" />
+                    </clipPath>
+                    <clipPath id="half-circle-right-${gradientId}">
+                      <rect x="12" y="0" width="12" height="24" />
+                    </clipPath>
+                  </defs>
+                  <circle cx="12" cy="12" r="8" fill="#00008B" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-left-${gradientId})"/>
+                  <circle cx="12" cy="12" r="8" fill="#DC143C" opacity="0.8" stroke="white" stroke-width="2" clip-path="url(#half-circle-right-${gradientId})"/>
+                  <circle cx="12" cy="12" r="4" fill="#00008B" clip-path="url(#half-circle-left-${gradientId})"/>
+                  <circle cx="12" cy="12" r="4" fill="#DC143C" clip-path="url(#half-circle-right-${gradientId})"/>
+                </svg>
+              </div>
+            `,
+            className: 'custom-marker',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12],
+          });
+        } else {
+          icon = L.divIcon({
+            html: `
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="4" fill="${color}"/>
+                </svg>
+              </div>
+            `,
+            className: 'custom-marker',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12],
+          });
+        }
       }
 
       let imageHtml = '';

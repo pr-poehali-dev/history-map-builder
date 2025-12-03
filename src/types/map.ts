@@ -22,6 +22,8 @@ export type MapObject = {
   namePeriods?: NamePeriod[];
   splitColor?: boolean;
   customColors?: { left: string; right: string };
+  nameChanges?: { year: number; newName: string }[];
+  colorChanges?: { year: number; newColor: string }[];
 };
 
 export type Event = {
