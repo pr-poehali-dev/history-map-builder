@@ -13,8 +13,6 @@ type EventDialogProps = {
 const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogProps) => {
   if (!event) return null;
 
-  const needsHorizontalScroll = event.id === 'don-e4';
-
   const getRelatedObjects = () => {
     if (!event.objectId) return [];
     
@@ -26,7 +24,7 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
-      <DialogContent className={`max-w-2xl max-h-[90vh] overflow-y-hidden ${needsHorizontalScroll ? 'overflow-x-auto md:overflow-x-auto' : 'overflow-x-hidden'}`}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">{event.title}</DialogTitle>
           <DialogDescription className="text-xs md:text-sm">
@@ -47,8 +45,8 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
                 )}
               </div>
             )}
-            <div className={needsHorizontalScroll ? 'overflow-x-auto md:overflow-x-auto' : 'overflow-x-visible'}>
-              <p className={`text-xs md:text-sm text-foreground text-justify ${needsHorizontalScroll ? 'whitespace-pre-line min-w-max md:min-w-max' : 'whitespace-pre-line'}`}>{event.description}</p>
+            <div className="overflow-x-auto md:overflow-x-visible">
+              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
             </div>
             
             {relatedObjects.length > 0 && (
