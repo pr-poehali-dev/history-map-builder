@@ -179,7 +179,12 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       }
       
       let icon;
-      if (obj.id === 'don-5' && currentDate >= 1571 && currentDate <= 1592) {
+      const shouldShowCoat = (
+        (obj.id === 'don-5' && currentDate >= 1571 && currentDate <= 1592) ||
+        (obj.id === 'don-26' && currentDate >= 1593 && currentDate <= 1619)
+      );
+
+      if (shouldShowCoat) {
         icon = L.divIcon({
           html: `
             <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
