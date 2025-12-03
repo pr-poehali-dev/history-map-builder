@@ -24,7 +24,7 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">{event.title}</DialogTitle>
           <DialogDescription className="text-xs md:text-sm">

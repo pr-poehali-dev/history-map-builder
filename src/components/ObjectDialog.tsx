@@ -40,7 +40,7 @@ const ObjectDialog = ({
 
   return (
     <Dialog open={!!object} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">
             {displayName}
