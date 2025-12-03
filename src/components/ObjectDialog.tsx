@@ -25,6 +25,8 @@ const ObjectDialog = ({
 }: ObjectDialogProps) => {
   if (!object) return null;
 
+  const needsHorizontalScroll = object.id === 'don-24' || object.id === 'don-15';
+
   let displayName = object.name;
   if (object.id === 'don-2' && currentDate >= 1805) {
     displayName = 'Старочеркасская';
@@ -40,7 +42,7 @@ const ObjectDialog = ({
 
   return (
     <Dialog open={!!object} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
+      <DialogContent className={`max-w-2xl max-h-[90vh] overflow-y-hidden ${needsHorizontalScroll ? 'overflow-x-auto md:overflow-x-auto' : 'overflow-x-hidden'}`}>
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">
             {displayName}
@@ -63,8 +65,8 @@ const ObjectDialog = ({
                 )}
               </div>
             )}
-            <div className="overflow-x-auto md:overflow-x-visible">
-              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
+            <div className={needsHorizontalScroll ? 'overflow-x-auto md:overflow-x-auto' : 'overflow-x-visible'}>
+              <p className={`text-xs md:text-sm text-foreground text-justify ${needsHorizontalScroll ? 'whitespace-pre-line min-w-max md:min-w-max' : 'whitespace-pre-line'}`}>{object.info}</p>
             </div>
             
             {relatedEvents.length > 0 && (
