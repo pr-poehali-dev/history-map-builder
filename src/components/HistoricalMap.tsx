@@ -179,17 +179,21 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       }
       
       let icon;
-      if (obj.id === 'don-26') {
+      if (obj.id === 'don-5' && currentDate >= 1571 && currentDate <= 1592) {
         icon = L.divIcon({
           html: `
-            <div style="display: flex; flex-direction: column; align-items: center;">
-              <img src="https://cdn.poehali.dev/files/dfd242cf-7725-4c24-9362-a29ae8fa56fc.png" style="width: 50px; height: 50px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="https://cdn.poehali.dev/files/dfd242cf-7725-4c24-9362-a29ae8fa56fc.png" style="width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="8" fill="${color}" opacity="0.8" stroke="white" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" fill="${color}"/>
+              </svg>
             </div>
           `,
           className: 'custom-marker',
-          iconSize: [50, 50],
-          iconAnchor: [25, 25],
-          popupAnchor: [0, -25],
+          iconSize: [40, 72],
+          iconAnchor: [20, 60],
+          popupAnchor: [0, -60],
         });
       } else if (obj.id === 'don-13') {
         icon = L.divIcon({
