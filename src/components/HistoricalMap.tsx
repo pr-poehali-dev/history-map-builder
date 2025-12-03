@@ -179,7 +179,19 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
       }
       
       let icon;
-      if (obj.id === 'don-13') {
+      if (obj.id === 'don-26') {
+        icon = L.divIcon({
+          html: `
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <img src="https://cdn.poehali.dev/files/dfd242cf-7725-4c24-9362-a29ae8fa56fc.png" style="width: 50px; height: 50px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+            </div>
+          `,
+          className: 'custom-marker',
+          iconSize: [50, 50],
+          iconAnchor: [25, 25],
+          popupAnchor: [0, -25],
+        });
+      } else if (obj.id === 'don-13') {
         icon = L.divIcon({
           html: `
             <div style="display: flex; flex-direction: column; align-items: center;">
@@ -310,17 +322,20 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         onObjectClick(obj);
       });
 
-      const label = L.tooltip({
-        permanent: true,
-        direction: 'bottom',
-        className: 'map-label',
-        offset: [0, 8]
-      })
-        .setLatLng([obj.lat, obj.lng])
-        .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
-        .addTo(map);
-
-      markers.push(marker, label);
+      if (obj.id !== 'don-26') {
+        const label = L.tooltip({
+          permanent: true,
+          direction: 'bottom',
+          className: 'map-label',
+          offset: [0, 8]
+        })
+          .setLatLng([obj.lat, obj.lng])
+          .setContent(`<span style="font-size: 13px; font-weight: 600; color: #000000; text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white, 0 0 5px white;">${displayName}</span>`)
+          .addTo(map);
+        markers.push(marker, label);
+      } else {
+        markers.push(marker);
+      }
     });
 
     return () => {
