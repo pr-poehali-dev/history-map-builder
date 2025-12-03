@@ -186,7 +186,20 @@ const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, on
         (obj.id === 'don-13' && currentDate >= 1637 && currentDate <= 1641)
       );
 
-      if (shouldShowCoat) {
+      if (shouldShowCoat && obj.id === 'don-13') {
+        icon = L.divIcon({
+          html: `
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="https://cdn.poehali.dev/files/dfd242cf-7725-4c24-9362-a29ae8fa56fc.png" style="width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+              <img src="https://cdn.poehali.dev/files/f9f9b854-e9cc-4060-9735-11dd3f038112.png" style="width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" />
+            </div>
+          `,
+          className: 'custom-marker',
+          iconSize: [40, 80],
+          iconAnchor: [20, 72],
+          popupAnchor: [0, -72],
+        });
+      } else if (shouldShowCoat) {
         icon = L.divIcon({
           html: `
             <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
