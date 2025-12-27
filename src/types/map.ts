@@ -26,6 +26,16 @@ export type MapObject = {
   colorChanges?: { year: number; newColor: string }[];
 };
 
+export type MapBoundary = {
+  id: string;
+  name: string;
+  coordinates: [number, number][];
+  activeFrom: number;
+  activeTo: number;
+  color?: string;
+  info?: string;
+};
+
 export type Event = {
   id: string;
   date: number;
@@ -44,4 +54,10 @@ export type MapInfo = {
   maxYear: number;
   image: string;
   description?: string;
+};
+
+export type MapData = {
+  objects: MapObject[];
+  events: Event[];
+  boundaries?: MapBoundary[];
 };
