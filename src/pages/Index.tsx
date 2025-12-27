@@ -21,7 +21,6 @@ const Index = () => {
 
   const mapObjects = selectedMap ? mapData[selectedMap]?.objects || [] : [];
   const events = selectedMap ? mapData[selectedMap]?.events || [] : [];
-  const boundaries = selectedMap ? mapData[selectedMap]?.boundaries || [] : [];
   const categories = Array.from(new Set(events.map(e => e.category)));
 
   const handleTimeStep = (direction: 'forward' | 'backward') => {
@@ -136,7 +135,6 @@ const Index = () => {
               <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-[50vh] md:min-h-0">
                 <HistoricalMap
                   objects={mapObjects}
-                  boundaries={boundaries}
                   currentDate={currentDate}
                   onObjectClick={(obj) => setSelectedObject(obj)}
                   selectedObject={selectedObject}

@@ -25,19 +25,8 @@ type MapObject = {
   colorChanges?: { year: number; newColor: string }[];
 };
 
-type MapBoundary = {
-  id: string;
-  name: string;
-  coordinates: [number, number][];
-  activeFrom: number;
-  activeTo: number;
-  color?: string;
-  info?: string;
-};
-
 type HistoricalMapProps = {
   objects: MapObject[];
-  boundaries?: MapBoundary[];
   currentDate: number;
   onObjectClick: (obj: MapObject) => void;
   selectedObject: MapObject | null;
@@ -45,7 +34,7 @@ type HistoricalMapProps = {
   mapStyle?: 'roadmap' | 'satellite' | 'terrain';
 };
 
-const HistoricalMap = ({ objects, boundaries = [], currentDate, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
+const HistoricalMap = ({ objects, currentDate, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom && currentDate <= obj.activeTo
@@ -372,36 +361,11 @@ const HistoricalMap = ({ objects, boundaries = [], currentDate, onObjectClick, s
       markers.push(marker, label);
     });
 
-    const polygons: L.Polyline[] = [];
-
-    const activeBoundaries = boundaries.filter(boundary =>
-      currentDate >= boundary.activeFrom && currentDate <= boundary.activeTo
-    );
-
-    activeBoundaries.forEach(boundary => {
-      const polygon = L.polyline(boundary.coordinates, {
-        color: boundary.color || '#DC143C',
-        weight: 3,
-        opacity: 0.8,
-        fillOpacity: 0
-      }).addTo(map);
-
-      if (boundary.info) {
-        polygon.bindPopup(`<div style="font-family: Arial, sans-serif;">
-          <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">${boundary.name}</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.4;">${boundary.info}</p>
-        </div>`);
-      }
-
-      polygons.push(polygon);
-    });
-
     return () => {
       markers.forEach(m => m.remove());
-      polygons.forEach(p => p.remove());
       map.remove();
     };
-  }, [objects, boundaries, currentDate, selectedObject, onObjectClick, mapStyle]);
+  }, [objects, currentDate, selectedObject, onObjectClick, mapStyle]);
 
   return <div id="map-container" style={{ height: '100%', width: '100%' }} />;
 };
