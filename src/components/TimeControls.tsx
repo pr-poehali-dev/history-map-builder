@@ -18,6 +18,11 @@ type TimeControlsProps = {
   onBack: () => void;
 };
 
+const MONTH_NAMES = [
+  'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+  'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+];
+
 const TimeControls = ({
   currentDate,
   timeUnit,
@@ -30,6 +35,8 @@ const TimeControls = ({
   onMapStyleChange,
   onBack
 }: TimeControlsProps) => {
+  const monthName = MONTH_NAMES[2];
+
   return (
     <Card className="p-3 md:p-4">
       <Button
@@ -45,7 +52,7 @@ const TimeControls = ({
       <div className="space-y-3 md:space-y-4">
         <div>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-            <label className="text-xs md:text-sm font-medium">Дата: {currentDate}</label>
+            <label className="text-xs md:text-sm font-medium">Дата: {monthName} {currentDate} г. от Р.Х.</label>
             <Select value={timeUnit} onValueChange={(v) => onTimeUnitChange(v as TimeUnit)}>
               <SelectTrigger className="w-full md:w-24 h-8 text-xs">
                 <SelectValue />
