@@ -65,7 +65,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
                     <h3 className="text-base md:text-xl font-semibold mb-1">{map.name}</h3>
-                    <p className="text-xs md:text-sm opacity-90">{map.period}</p>
+                    <p className="text-xs md:text-sm opacity-90">{map.period} гг. от Р.Х.</p>
                   </div>
                 </div>
                 {map.description && (
