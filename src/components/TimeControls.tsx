@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
@@ -35,7 +36,28 @@ const TimeControls = ({
   onMapStyleChange,
   onBack
 }: TimeControlsProps) => {
-  const monthName = MONTH_NAMES[2];
+  const [monthIndex, setMonthIndex] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    setMonthIndex(0);
+
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = setInterval(() => {
+      setMonthIndex((prev) => (prev + 1) % 12);
+    }, 800);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [currentDate]);
+
+  const monthName = MONTH_NAMES[monthIndex];
 
   return (
     <Card className="p-3 md:p-4">
