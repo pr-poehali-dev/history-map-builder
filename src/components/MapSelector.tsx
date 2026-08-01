@@ -48,7 +48,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
         </div>
 
         <div>
-          <h2 className="text-lg md:text-xl font-semibold text-primary">Доступные карты</h2>
+          <h2 className="text-xl md:text-2xl font-semibold text-primary">Доступные карты</h2>
           <hr className="border-t-2 border-muted-foreground/40 my-2" />
           <h3 className="text-base md:text-lg font-semibold text-primary">История России</h3>
           <hr className="border-t-2 border-muted-foreground/40 mt-2 mb-3 md:mb-4" />
