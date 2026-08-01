@@ -69,9 +69,12 @@ const Index = () => {
 
   return (
     <div className="h-screen flex flex-col bg-background">
-      <header className="bg-primary text-primary-foreground p-3 md:p-4 shadow-md">
+      <header className="bg-black text-[#FFE500] p-3 md:p-4 shadow-md">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
-          <h1 className="text-lg md:text-2xl font-bold text-center md:text-left">Интерактивные исторические карты</h1>
+          <div className="flex items-center gap-3 justify-center md:justify-start">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#FFE500] flex-shrink-0" />
+            <h1 className="text-lg md:text-2xl font-bold text-center md:text-left">Интерактивные исторические карты</h1>
+          </div>
           <div className="flex items-center justify-center gap-3 md:gap-4">
             <a 
               href="https://donstu.ru/university/faculties/social-humanitarian/" 
