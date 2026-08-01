@@ -26,7 +26,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
 
           <div className="flex items-start justify-center order-1 md:order-2">
             <img 
-              src="https://cdn.poehali.dev/files/ab18a25b-873c-40e0-aebd-8e3038ae7757.png" 
+              src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/33bf9a24-5b83-498b-a85f-8553a11fd19c.png" 
               alt="Эмблема"
               className="w-48 h-48 md:w-64 md:h-64 object-contain select-none pointer-events-none transition-transform duration-300 hover:scale-110"
               draggable="false"
