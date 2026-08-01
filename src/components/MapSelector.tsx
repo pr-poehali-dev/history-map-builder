@@ -12,10 +12,10 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
     <div className="flex-1 flex items-start md:items-center justify-center p-4 md:p-8 overflow-y-auto">
       <div className="max-w-5xl w-full space-y-2 md:space-y-2 pt-4 md:pt-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-start">
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center h-fit self-center mt-6 md:mt-10 order-2 md:order-1">
-            <div className="flex flex-col items-center gap-3 md:gap-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Icon name="Map" className="text-primary" size={24} />
+          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-4 md:px-6 py-2 md:py-3 text-center h-fit self-center mt-10 md:mt-16 order-2 md:order-1">
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Icon name="Map" className="text-primary" size={20} />
               </div>
               <div>
                 <h3 className="text-base md:text-lg font-semibold mb-1">Карты</h3>
@@ -34,10 +34,10 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             />
           </div>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 p-4 md:p-6 text-center opacity-50 h-fit self-center mt-6 md:mt-10 order-3">
-            <div className="flex flex-col items-center gap-3 md:gap-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Icon name="BookOpen" className="text-primary" size={24} />
+          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-4 md:px-6 py-2 md:py-3 text-center opacity-50 h-fit self-center mt-10 md:mt-16 order-3">
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Icon name="BookOpen" className="text-primary" size={20} />
               </div>
               <div>
                 <h3 className="text-base md:text-lg font-semibold mb-1">Справочная информация</h3>
