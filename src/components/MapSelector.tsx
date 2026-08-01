@@ -48,7 +48,10 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
         </div>
 
         <div>
-          <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Доступные карты</h2>
+          <h2 className="text-lg md:text-xl font-semibold text-primary">Доступные карты</h2>
+          <hr className="border-t-2 border-muted-foreground/40 my-2" />
+          <h3 className="text-base md:text-lg font-semibold text-primary">История России</h3>
+          <hr className="border-t-2 border-muted-foreground/40 mt-2 mb-3 md:mb-4" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {maps.map(map => (
               <Card
