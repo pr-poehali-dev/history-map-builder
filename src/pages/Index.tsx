@@ -11,6 +11,7 @@ import { TimeUnit, MapObject, Event } from '@/types/map';
 const Index = () => {
   const [selectedMap, setSelectedMap] = useState<string | null>(null);
   const [currentDate, setCurrentDate] = useState(1600);
+  const [currentMonth, setCurrentMonth] = useState(0);
   const [timeUnit, setTimeUnit] = useState<TimeUnit>('year');
   const [selectedObject, setSelectedObject] = useState<MapObject | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
@@ -25,24 +26,37 @@ const Index = () => {
   const categories = Array.from(new Set(events.map(e => e.category)));
 
   const handleTimeStep = (direction: 'forward' | 'backward') => {
+    const currentMap = maps.find(m => m.id === selectedMap);
+    if (!currentMap) return;
+
+    if (timeUnit === 'month') {
+      const totalMonths = currentDate * 12 + currentMonth + (direction === 'forward' ? 1 : -1);
+      const minTotalMonths = currentMap.minYear * 12;
+      const maxTotalMonths = currentMap.maxYear * 12 + 11;
+      const clampedTotalMonths = Math.max(minTotalMonths, Math.min(maxTotalMonths, totalMonths));
+      const newYear = Math.floor(clampedTotalMonths / 12);
+      const newMonth = clampedTotalMonths % 12;
+      setCurrentDate(newYear);
+      setCurrentMonth(newMonth);
+      return;
+    }
+
     const steps = {
       year: 1,
       decade: 10,
       '50years': 50,
       century: 100
     };
-    const step = steps[timeUnit];
+    const step = steps[timeUnit as 'year' | 'decade' | '50years' | 'century'];
     const newDate = direction === 'forward' ? currentDate + step : currentDate - step;
-    const currentMap = maps.find(m => m.id === selectedMap);
-    if (currentMap) {
-      const clampedDate = Math.max(currentMap.minYear, Math.min(currentMap.maxYear, newDate));
-      setCurrentDate(clampedDate);
-    }
+    const clampedDate = Math.max(currentMap.minYear, Math.min(currentMap.maxYear, newDate));
+    setCurrentDate(clampedDate);
   };
 
   const handleSelectMap = (mapId: string, minYear: number) => {
     setSelectedMap(mapId);
     setCurrentDate(minYear);
+    setCurrentMonth(0);
   };
 
   const handleBack = () => {
@@ -107,11 +121,15 @@ const Index = () => {
             <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 min-h-0">
               <TimeControls
                 currentDate={currentDate}
+                currentMonth={currentMonth}
                 timeUnit={timeUnit}
                 minYear={currentMapInfo?.minYear || 1540}
                 maxYear={currentMapInfo?.maxYear || 1955}
                 mapStyle={mapStyle}
-                onDateChange={setCurrentDate}
+                onDateChange={(date) => {
+                  setCurrentDate(date);
+                  setCurrentMonth(0);
+                }}
                 onTimeUnitChange={setTimeUnit}
                 onTimeStep={handleTimeStep}
                 onMapStyleChange={setMapStyle}

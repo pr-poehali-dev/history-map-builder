@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
@@ -8,6 +7,7 @@ import { TimeUnit } from '@/types/map';
 
 type TimeControlsProps = {
   currentDate: number;
+  currentMonth: number;
   timeUnit: TimeUnit;
   minYear: number;
   maxYear: number;
@@ -26,6 +26,7 @@ const MONTH_NAMES = [
 
 const TimeControls = ({
   currentDate,
+  currentMonth,
   timeUnit,
   minYear,
   maxYear,
@@ -36,28 +37,7 @@ const TimeControls = ({
   onMapStyleChange,
   onBack
 }: TimeControlsProps) => {
-  const [monthIndex, setMonthIndex] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    setMonthIndex(0);
-
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    intervalRef.current = setInterval(() => {
-      setMonthIndex((prev) => (prev + 1) % 12);
-    }, 800);
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [currentDate]);
-
-  const monthName = MONTH_NAMES[monthIndex];
+  const monthName = MONTH_NAMES[currentMonth];
 
   return (
     <Card className="p-3 md:p-4">
@@ -80,6 +60,7 @@ const TimeControls = ({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="month">Месяц</SelectItem>
                 <SelectItem value="year">Год</SelectItem>
                 <SelectItem value="decade">Десятилетие</SelectItem>
                 <SelectItem value="50years">50 лет</SelectItem>
