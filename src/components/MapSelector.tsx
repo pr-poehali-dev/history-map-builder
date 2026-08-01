@@ -24,11 +24,11 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             </div>
           </Card>
 
-          <div className="flex items-start justify-center order-1 md:order-2">
+          <div className="flex items-start justify-center order-1 md:order-2 w-fit h-fit mx-auto mt-10 md:mt-16">
             <img 
               src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/30f25ee7-1e02-44e5-82dd-a98d0ef58402.png" 
               alt="Эмблема"
-              className="w-48 h-48 md:w-64 md:h-64 object-contain select-none pointer-events-none transition-transform duration-300 hover:scale-110"
+              className="block w-48 h-48 md:w-64 md:h-64 object-contain select-none pointer-events-none transition-transform duration-300 hover:scale-110"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
