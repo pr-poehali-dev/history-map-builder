@@ -11,37 +11,37 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
   return (
     <div className="flex-1 flex items-start md:items-center justify-center p-3 md:p-8 overflow-y-auto">
       <div className="max-w-5xl w-full space-y-1 md:space-y-2 pt-1 md:pt-0">
-        <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-6 items-center md:items-start">
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-2 md:px-6 py-2 md:py-3 text-center h-fit self-center mt-0 md:mt-16 order-2 md:order-1">
-            <div className="flex flex-col items-center gap-1 md:gap-3">
-              <div className="w-7 h-7 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Icon name="Map" className="text-primary" size={14} />
-              </div>
-              <div>
-                <h3 className="text-xs md:text-lg font-semibold mb-0.5 md:mb-1">Карты</h3>
-                <p className="hidden md:block text-xs md:text-sm text-muted-foreground">Просмотр исторических карт</p>
-              </div>
-            </div>
-          </Card>
-
-          <div className="flex items-center justify-center order-1 md:order-2 w-fit h-fit mx-auto mt-0 md:mt-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6 items-center md:items-start">
+          <div className="order-1 col-span-2 md:order-2 md:col-span-1 flex items-center justify-center w-fit h-fit mx-auto mt-0 md:mt-20">
             <img 
               src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/30f25ee7-1e02-44e5-82dd-a98d0ef58402.png" 
               alt="Эмблема"
-              className="block w-20 h-20 md:w-64 md:h-64 object-contain select-none pointer-events-none md:scale-125 transition-transform duration-300 hover:scale-110 md:hover:scale-[1.4]"
+              className="block w-44 h-44 md:w-64 md:h-64 object-contain select-none pointer-events-none md:scale-125 transition-transform duration-300 hover:scale-105 md:hover:scale-[1.4]"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
           </div>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-2 md:px-6 py-2 md:py-3 text-center opacity-50 h-fit self-center mt-0 md:mt-16 order-3">
+          <Card className="order-2 md:order-1 cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-3 md:px-6 py-2 md:py-3 text-center h-fit self-center mt-0 md:mt-16">
             <div className="flex flex-col items-center gap-1 md:gap-3">
-              <div className="w-7 h-7 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Icon name="BookOpen" className="text-primary" size={14} />
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Icon name="Map" className="text-primary" size={18} />
               </div>
               <div>
-                <h3 className="text-xs md:text-lg font-semibold mb-0.5 md:mb-1 leading-tight">Справочная информация</h3>
-                <p className="hidden md:block text-xs md:text-sm text-muted-foreground">Энциклопедия и источники</p>
+                <h3 className="text-sm md:text-lg font-semibold mb-0.5 md:mb-1">Карты</h3>
+                <p className="text-[11px] md:text-sm text-muted-foreground">Просмотр исторических карт</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="order-3 cursor-pointer hover:shadow-lg transition-all hover:scale-105 px-3 md:px-6 py-2 md:py-3 text-center opacity-50 h-fit self-center mt-0 md:mt-16">
+            <div className="flex flex-col items-center gap-1 md:gap-3">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Icon name="BookOpen" className="text-primary" size={18} />
+              </div>
+              <div>
+                <h3 className="text-sm md:text-lg font-semibold mb-0.5 md:mb-1 leading-tight">Справочная информация</h3>
+                <p className="text-[11px] md:text-sm text-muted-foreground">Энциклопедия и источники</p>
               </div>
             </div>
           </Card>
