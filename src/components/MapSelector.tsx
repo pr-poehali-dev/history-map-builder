@@ -16,7 +16,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
             <img 
               src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/30f25ee7-1e02-44e5-82dd-a98d0ef58402.png" 
               alt="Эмблема"
-              className="block w-44 h-44 md:w-64 md:h-64 object-contain select-none pointer-events-none md:scale-125 transition-transform duration-300 hover:scale-105 md:hover:scale-[1.4]"
+              className="block w-44 h-44 md:w-64 md:h-64 object-contain select-none pointer-events-none scale-110 md:scale-125 transition-transform duration-300 hover:scale-[1.15] md:hover:scale-[1.4]"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
