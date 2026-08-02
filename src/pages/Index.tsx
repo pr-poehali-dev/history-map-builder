@@ -72,14 +72,14 @@ const Index = () => {
       <header className="bg-black text-[#FCD975] p-3 md:p-4 shadow-md">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-[#FCD975] flex-shrink-0 overflow-hidden">
+            <div className="hidden md:block w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-[#FCD975] flex-shrink-0 overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/abfe84db-251f-4ef9-8590-bc02245cda79.png"
                 alt="Эмблема"
                 className="w-full h-full object-cover"
               />
             </div>
-            <h1 className="text-lg md:text-2xl font-bold text-center md:text-left">Интерактивные исторические карты</h1>
+            <h1 className="text-base md:text-2xl font-bold text-center md:text-left whitespace-nowrap w-full md:w-auto">Интерактивные исторические карты</h1>
           </div>
           <div className="flex items-center justify-center gap-3 md:gap-4">
             <a 
