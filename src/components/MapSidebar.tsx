@@ -43,7 +43,7 @@ const MapSidebar = ({
           </TabsList>
         </div>
 
-        <TabsContent value="personalities" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden">
+        <TabsContent value="personalities" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden data-[state=inactive]:hidden">
           <ScrollArea className="h-full">
             <div className="space-y-2 pr-2 md:pr-4">
               {personalityEvents.length === 0 ? (
@@ -70,61 +70,63 @@ const MapSidebar = ({
           </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="events" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden flex flex-col">
-          <div className="mb-3 md:mb-4 space-y-2 flex-shrink-0">
-            <div className="grid grid-cols-2 gap-2">
-              <Button
-                variant={eventFilter === 'all' ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => onEventFilterChange('all')}
-                className="w-full text-xs md:text-sm"
-              >
-                Все события
-              </Button>
-              <Button
-                variant={eventFilter === 'category' ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => onEventFilterChange('category')}
-                className="w-full text-xs md:text-sm"
-              >
-                По категории
-              </Button>
+        <TabsContent value="events" className="flex-1 m-0 px-2 md:px-4 pt-2 md:pt-4 overflow-hidden data-[state=inactive]:hidden">
+          <div className="h-full flex flex-col">
+            <div className="mb-3 md:mb-4 space-y-2 flex-shrink-0">
+              <div className="grid grid-cols-2 gap-2">
+                <Button
+                  variant={eventFilter === 'all' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => onEventFilterChange('all')}
+                  className="w-full text-xs md:text-sm"
+                >
+                  Все события
+                </Button>
+                <Button
+                  variant={eventFilter === 'category' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => onEventFilterChange('category')}
+                  className="w-full text-xs md:text-sm"
+                >
+                  По категории
+                </Button>
+              </div>
+
+              {eventFilter === 'category' && (
+                <Select value={selectedCategory} onValueChange={onCategoryChange}>
+                  <SelectTrigger className="h-9 text-xs md:text-sm">
+                    <SelectValue placeholder="Выберите категорию" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Все категории</SelectItem>
+                    {categories.map(cat => (
+                      <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
             </div>
 
-            {eventFilter === 'category' && (
-              <Select value={selectedCategory} onValueChange={onCategoryChange}>
-                <SelectTrigger className="h-9 text-xs md:text-sm">
-                  <SelectValue placeholder="Выберите категорию" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Все категории</SelectItem>
-                  {categories.map(cat => (
-                    <SelectItem key={cat} value={cat}>{cat}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-          </div>
-
-          <ScrollArea className="flex-1">
-            <div className="space-y-2 pr-2 md:pr-4">
-              {filteredEvents
-                .sort((a, b) => a.date - b.date)
-                .map(event => (
-                  <div
-                    key={event.id}
-                    className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
-                    onClick={() => onSelectEvent(event)}
-                  >
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-[10px] md:text-xs font-medium text-primary">{event.date}</span>
-                      <span className="text-[10px] md:text-xs text-muted-foreground">{event.category}</span>
+            <ScrollArea className="flex-1">
+              <div className="space-y-2 pr-2 md:pr-4">
+                {filteredEvents
+                  .sort((a, b) => a.date - b.date)
+                  .map(event => (
+                    <div
+                      key={event.id}
+                      className="p-2 md:p-3 rounded-lg border cursor-pointer hover:bg-accent transition-colors"
+                      onClick={() => onSelectEvent(event)}
+                    >
+                      <div className="flex items-baseline gap-2 mb-1">
+                        <span className="text-[10px] md:text-xs font-medium text-primary">{event.date}</span>
+                        <span className="text-[10px] md:text-xs text-muted-foreground">{event.category}</span>
+                      </div>
+                      <h4 className="font-medium text-xs md:text-sm">{event.title}</h4>
                     </div>
-                    <h4 className="font-medium text-xs md:text-sm">{event.title}</h4>
-                  </div>
-                ))}
-            </div>
-          </ScrollArea>
+                  ))}
+              </div>
+            </ScrollArea>
+          </div>
         </TabsContent>
       </Tabs>
     </Card>
