@@ -23,7 +23,7 @@ const Index = () => {
   const mapObjects = selectedMap ? mapData[selectedMap]?.objects || [] : [];
   const events = selectedMap ? mapData[selectedMap]?.events || [] : [];
   const boundaries = selectedMap ? mapData[selectedMap]?.boundaries || [] : [];
-  const categories = Array.from(new Set(events.map(e => e.category)));
+  const categories = Array.from(new Set(events.filter(e => e.category !== 'Персоналии').map(e => e.category)));
 
   const handleTimeStep = (direction: 'forward' | 'backward') => {
     const currentMap = maps.find(m => m.id === selectedMap);
@@ -146,13 +146,10 @@ const Index = () => {
               />
 
               <MapSidebar
-                currentDate={currentDate}
-                mapObjects={mapObjects}
                 events={events}
                 eventFilter={eventFilter}
                 selectedCategory={selectedCategory}
                 categories={categories}
-                onSelectObject={setSelectedObject}
                 onSelectEvent={setSelectedEvent}
                 onEventFilterChange={setEventFilter}
                 onCategoryChange={setSelectedCategory}
