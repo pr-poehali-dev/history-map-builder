@@ -430,11 +430,11 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[], bo
         lat: 48.359373, 
         lng: 43.085947, 
         info: '', 
-        activeFrom: 1671, 
+        activeFrom: 1637, 
         activeTo: 1965,
         customDate: 'С 1960 года - Нижний Чир',
         namePeriods: [
-          { name: 'Нижне-Чирская', fromYear: 1671, toYear: 1959, color: '#00008B' },
+          { name: 'Нижне-Чирская', fromYear: 1637, toYear: 1959, color: '#00008B' },
           { name: 'Нижний Чир', fromYear: 1960, toYear: 1965, color: '#00008B' }
         ]
       },
@@ -589,12 +589,14 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[], bo
         lat: 47.648306, 
         lng: 42.102189, 
         info: '', 
-        activeFrom: 1672, 
+        activeFrom: 1595, 
         activeTo: 1965,
-        customDate: 'С 1950 года - Цимлянск',
+        customDate: 'Первое упоминание в 1595 г.',
         namePeriods: [
-          { name: 'Цимла', fromYear: 1672, toYear: 1949, color: '#00008B' },
-          { name: 'Цимлянск', fromYear: 1950, toYear: 1965, color: '#DC143C' }
+          { name: 'Усть-Цымла', fromYear: 1595, toYear: 1700, color: '#00008B' },
+          { name: 'Цымлянская', fromYear: 1701, toYear: 1951, toMonth: 8, color: '#00008B' },
+          { name: 'Цимлянский', fromYear: 1951, fromMonth: 9, toYear: 1961, toMonth: 3, color: '#00008B' },
+          { name: 'Цимлянск', fromYear: 1961, fromMonth: 4, toYear: 1965, color: '#DC143C' }
         ]
       },
       { 

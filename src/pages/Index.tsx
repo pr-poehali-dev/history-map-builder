@@ -162,6 +162,7 @@ const Index = () => {
                   objects={mapObjects}
                   boundaries={boundaries}
                   currentDate={currentDate}
+                  currentMonth={currentMonth}
                   onObjectClick={(obj) => setSelectedObject(obj)}
                   selectedObject={selectedObject}
                   onResetZoom={() => {}}
@@ -176,6 +177,7 @@ const Index = () => {
       <ObjectDialog
         object={selectedObject}
         currentDate={currentDate}
+        currentMonth={currentMonth}
         relatedEvents={events.filter(e => {
           if (Array.isArray(e.objectId)) {
             return e.objectId.includes(selectedObject?.id || '');

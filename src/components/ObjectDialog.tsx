@@ -7,6 +7,7 @@ import { MapObject, Event } from '@/types/map';
 type ObjectDialogProps = {
   object: MapObject | null;
   currentDate: number;
+  currentMonth?: number;
   relatedEvents: Event[];
   showRelatedEvents: boolean;
   onClose: () => void;
@@ -14,9 +15,12 @@ type ObjectDialogProps = {
   onSelectEvent: (event: Event) => void;
 };
 
+const toTotalMonths = (year: number, month: number) => year * 12 + month;
+
 const ObjectDialog = ({
   object,
   currentDate,
+  currentMonth = 0,
   relatedEvents,
   showRelatedEvents,
   onClose,
@@ -35,6 +39,17 @@ const ObjectDialog = ({
       .sort((a, b) => b.year - a.year)[0];
     if (applicableChange) {
       displayName = applicableChange.newName;
+    }
+  }
+  if (object.namePeriods) {
+    const currentTotalMonths = toTotalMonths(currentDate, currentMonth);
+    const currentPeriod = object.namePeriods.find(p => {
+      const fromTotalMonths = toTotalMonths(p.fromYear, p.fromMonth ?? 0);
+      const toTotalMonthsValue = toTotalMonths(p.toYear, p.toMonth ?? 11);
+      return currentTotalMonths >= fromTotalMonths && currentTotalMonths <= toTotalMonthsValue;
+    });
+    if (currentPeriod) {
+      displayName = currentPeriod.name;
     }
   }
 

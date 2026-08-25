@@ -5,9 +5,13 @@ import 'leaflet/dist/leaflet.css';
 type NamePeriod = {
   name: string;
   fromYear: number;
+  fromMonth?: number;
   toYear: number;
+  toMonth?: number;
   color?: string;
 };
+
+const toTotalMonths = (year: number, month: number) => year * 12 + month;
 
 type MapObject = {
   id: string;
@@ -39,13 +43,14 @@ type HistoricalMapProps = {
   objects: MapObject[];
   boundaries?: MapBoundary[];
   currentDate: number;
+  currentMonth?: number;
   onObjectClick: (obj: MapObject) => void;
   selectedObject: MapObject | null;
   onResetZoom?: () => void;
   mapStyle?: 'roadmap' | 'satellite' | 'terrain';
 };
 
-const HistoricalMap = ({ objects, boundaries = [], currentDate, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
+const HistoricalMap = ({ objects, boundaries = [], currentDate, currentMonth = 0, onObjectClick, selectedObject, onResetZoom, mapStyle = 'roadmap' }: HistoricalMapProps) => {
   useEffect(() => {
     const activeObjects = objects.filter(obj => 
       currentDate >= obj.activeFrom && currentDate <= obj.activeTo
@@ -178,9 +183,12 @@ const HistoricalMap = ({ objects, boundaries = [], currentDate, onObjectClick, s
       }
       
       if (obj.namePeriods) {
-        const currentPeriod = obj.namePeriods.find(
-          p => currentDate >= p.fromYear && currentDate <= p.toYear
-        );
+        const currentTotalMonths = toTotalMonths(currentDate, currentMonth);
+        const currentPeriod = obj.namePeriods.find(p => {
+          const fromTotalMonths = toTotalMonths(p.fromYear, p.fromMonth ?? 0);
+          const toTotalMonthsValue = toTotalMonths(p.toYear, p.toMonth ?? 11);
+          return currentTotalMonths >= fromTotalMonths && currentTotalMonths <= toTotalMonthsValue;
+        });
         if (currentPeriod) {
           displayName = currentPeriod.name;
           if (currentPeriod.color && currentPeriod.color !== 'split') {

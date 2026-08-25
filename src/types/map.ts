@@ -3,7 +3,9 @@ export type TimeUnit = 'day' | 'month' | 'year' | 'decade' | '50years' | 'centur
 export type NamePeriod = {
   name: string;
   fromYear: number;
+  fromMonth?: number;
   toYear: number;
+  toMonth?: number;
   color?: string;
 };
 
