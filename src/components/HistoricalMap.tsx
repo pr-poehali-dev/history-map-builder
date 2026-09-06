@@ -95,6 +95,21 @@ const HistoricalMap = ({ objects, boundaries = [], currentDate, currentMonth = 0
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     }).addTo(map);
 
+    const zoomIndicator = L.DomUtil.create('div', 'zoom-level-indicator');
+    L.DomEvent.disableClickPropagation(zoomIndicator);
+    const maxMapZoom = map.getMaxZoom();
+    const updateZoomIndicator = () => {
+      zoomIndicator.textContent = String(Math.round(maxMapZoom - map.getZoom() + 1));
+    };
+    updateZoomIndicator();
+    map.on('zoomend', updateZoomIndicator);
+
+    const zoomControlContainer = map.zoomControl?.getContainer();
+    const zoomOutButton = zoomControlContainer?.querySelector('.leaflet-control-zoom-out');
+    if (zoomControlContainer && zoomOutButton) {
+      zoomControlContainer.insertBefore(zoomIndicator, zoomOutButton);
+    }
+
     const legend = L.control({ position: 'bottomleft' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'legend');

@@ -128,3 +128,23 @@
 .map-label::before {
   display: none !important;
 }
+
+.zoom-level-indicator {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2c3e50;
+  user-select: none;
+  cursor: default;
+}
+
+.leaflet-touch .zoom-level-indicator {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
