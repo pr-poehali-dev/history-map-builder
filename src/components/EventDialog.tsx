@@ -24,29 +24,29 @@ const EventDialog = ({ event, mapObjects, onClose, onObjectClick }: EventDialogP
 
   return (
     <Dialog open={!!event} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">{event.title}</DialogTitle>
           <DialogDescription className="text-xs md:text-sm">
             {event.date} • {event.category}
           </DialogDescription>
         </DialogHeader>
-        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
-          <div className="space-y-3 md:space-y-4 py-2 md:py-4">
+        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4 min-w-0">
+          <div className="space-y-3 md:space-y-4 py-2 md:py-4 min-w-0">
             {event.image && (
-              <div className="space-y-2">
+              <div className="space-y-2 min-w-0">
                 <img 
                   src={event.image} 
                   alt={event.title} 
-                  className="w-full rounded-md"
+                  className="w-full max-w-full h-auto rounded-md"
                 />
                 {event.imageCaption && (
-                  <p className="text-xs text-center text-muted-foreground">{event.imageCaption}</p>
+                  <p className="text-xs text-center text-muted-foreground break-words">{event.imageCaption}</p>
                 )}
               </div>
             )}
-            <div className="overflow-x-auto md:overflow-x-visible">
-              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{event.description}</p>
+            <div className="min-w-0">
+              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line break-words">{event.description}</p>
             </div>
             
             {relatedObjects.length > 0 && (

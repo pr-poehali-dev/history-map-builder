@@ -64,21 +64,21 @@ const ObjectDialog = ({
             {object.customDate || (object.id === 'don-5' ? 'Первое упоминание: 1571 г.' : `${object.activeFrom}—${object.activeTo}`)}
           </DialogDescription>
         </DialogHeader>
-        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4">
-          <div className="space-y-3 md:space-y-4 py-2 md:py-4">
+        <ScrollArea className="max-h-[60vh] md:max-h-[65vh] pr-2 md:pr-4 min-w-0">
+          <div className="space-y-3 md:space-y-4 py-2 md:py-4 min-w-0">
             {object.image && (
-              <div className="space-y-2">
+              <div className="space-y-2 min-w-0">
                 <img 
                   src={object.image} 
                   alt={object.name} 
-                  className="w-full rounded-md"
+                  className="w-full max-w-full h-auto rounded-md"
                 />
                 {object.imageCaption && (
-                  <p className="text-xs text-center text-muted-foreground">{object.imageCaption}</p>
+                  <p className="text-xs text-center text-muted-foreground break-words">{object.imageCaption}</p>
                 )}
               </div>
             )}
-            <div>
+            <div className="min-w-0">
               <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line break-words">{object.info}</p>
             </div>
             
