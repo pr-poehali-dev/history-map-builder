@@ -22,6 +22,9 @@ type MapObject = {
   activeFrom: number;
   activeTo: number;
   color?: string;
+  image?: string;
+  imageCaption?: string;
+  customDate?: string;
   namePeriods?: NamePeriod[];
   splitColor?: boolean;
   customColors?: { left: string; right: string };
@@ -32,11 +35,18 @@ type MapObject = {
 type MapBoundary = {
   id: string;
   name: string;
-  coordinates: [number, number][];
+  coordinates: [number, number][][];
   activeFrom: number;
+  activeFromMonth?: number;
   activeTo: number;
+  activeToMonth?: number;
   color?: string;
   info?: string;
+  image?: string;
+  imageCaption?: string;
+  customDate?: string;
+  namePeriods?: NamePeriod[];
+  nameChanges?: { year: number; newName: string }[];
 };
 
 type HistoricalMapProps = {
@@ -395,26 +405,61 @@ const HistoricalMap = ({ objects, boundaries = [], currentDate, currentMonth = 0
       markers.push(marker, label);
     });
 
-    const polygons: L.Polyline[] = [];
+    const polygons: L.Polygon[] = [];
 
-    const activeBoundaries = boundaries.filter(boundary =>
-      currentDate >= boundary.activeFrom && currentDate <= boundary.activeTo
-    );
+    const currentTotalMonthsForBoundaries = toTotalMonths(currentDate, currentMonth);
+
+    const activeBoundaries = boundaries.filter(boundary => {
+      const fromTotalMonths = toTotalMonths(boundary.activeFrom, boundary.activeFromMonth ?? 0);
+      const toTotalMonthsValue = toTotalMonths(boundary.activeTo, boundary.activeToMonth ?? 11);
+      return currentTotalMonthsForBoundaries >= fromTotalMonths && currentTotalMonthsForBoundaries <= toTotalMonthsValue;
+    });
 
     activeBoundaries.forEach(boundary => {
-      const polygon = L.polyline(boundary.coordinates, {
+      let displayName = boundary.name;
+
+      if (boundary.nameChanges) {
+        const applicableChange = boundary.nameChanges
+          .filter(change => currentDate >= change.year)
+          .sort((a, b) => b.year - a.year)[0];
+        if (applicableChange) {
+          displayName = applicableChange.newName;
+        }
+      }
+
+      if (boundary.namePeriods) {
+        const currentPeriod = boundary.namePeriods.find(p => {
+          const fromTotalMonths = toTotalMonths(p.fromYear, p.fromMonth ?? 0);
+          const toTotalMonthsValue = toTotalMonths(p.toYear, p.toMonth ?? 11);
+          return currentTotalMonthsForBoundaries >= fromTotalMonths && currentTotalMonthsForBoundaries <= toTotalMonthsValue;
+        });
+        if (currentPeriod) {
+          displayName = currentPeriod.name;
+        }
+      }
+
+      const polygon = L.polygon(boundary.coordinates, {
         color: boundary.color || '#DC143C',
         weight: 3,
         opacity: 0.8,
-        fillOpacity: 0
+        fillColor: boundary.color || '#DC143C',
+        fillOpacity: 0.3
       }).addTo(map);
 
-      if (boundary.info) {
-        polygon.bindPopup(`<div style="font-family: Arial, sans-serif;">
-          <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">${boundary.name}</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.4;">${boundary.info}</p>
-        </div>`);
-      }
+      polygon.on('click', () => {
+        onObjectClick({
+          id: boundary.id,
+          name: displayName,
+          lat: 0,
+          lng: 0,
+          info: boundary.info || '',
+          activeFrom: boundary.activeFrom,
+          activeTo: boundary.activeTo,
+          image: boundary.image,
+          imageCaption: boundary.imageCaption,
+          customDate: boundary.customDate,
+        });
+      });
 
       polygons.push(polygon);
     });

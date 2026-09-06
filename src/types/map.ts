@@ -31,11 +31,18 @@ export type MapObject = {
 export type MapBoundary = {
   id: string;
   name: string;
-  coordinates: [number, number][];
+  coordinates: [number, number][][];
   activeFrom: number;
+  activeFromMonth?: number;
   activeTo: number;
+  activeToMonth?: number;
   color?: string;
   info?: string;
+  image?: string;
+  imageCaption?: string;
+  customDate?: string;
+  namePeriods?: NamePeriod[];
+  nameChanges?: { year: number; newName: string }[];
 };
 
 export type Event = {
