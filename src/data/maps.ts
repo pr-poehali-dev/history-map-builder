@@ -310,8 +310,9 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[], bo
 2. А.А. Скальковский; РОСТОВ-НА-ДОНУ; Санкт-Петербург. Типография министерства внутренних дел, 1847 г.
 3. Темерницкая таможня и крепость Святого Димитрия Ростовского [Электронный ресурс]. – Режим доступа: https://www.donland.ru/activity/131/ (дата обращения: 19.11.2025).
 4. 1-я Ростовская таможня. - Из истории Ростова - Ростов со всех сторон - Статьи, очерки, зарисовки - Ростовберег.ру [Электронный ресурс]. – Режим доступа: https://www.rostovbereg.ru/publ/rostov_so_vsekh_storon/1_ja_rostovskaja_tamozhnja/1-1-0-618?utm_medium=organic&utm_source=yandexsmartcamera (дата обращения: 19.11.2025).`,
-        image: 'https://cdn.poehali.dev/files/de932bc2-d92b-4a8f-befa-02869cb772f4.png',
+        image: 'https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/f4df4c6e-41b3-4d1d-8142-081db4ae7eb0.png',
         imageCaption: 'Картина «Темерницкая таможня и крепость Димитрия Ростовского». Художник И.Д. Скворцов. Передана в Ростовский областной музей краеведения 8 декабря 1962 г.',
+        customDate: 'Основана по указу императрицы Елизаветы Петровны в 1749 г.',
         activeFrom: 1749, 
         activeTo: 1795,
         color: 'split',
