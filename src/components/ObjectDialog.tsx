@@ -28,6 +28,7 @@ const ObjectDialog = ({
   onSelectEvent
 }: ObjectDialogProps) => {
   if (!object) return null;
+  if (object.id === 'don-15') return null;
 
   let displayName = object.name;
   if (object.id === 'don-2' && currentDate >= 1805) {
