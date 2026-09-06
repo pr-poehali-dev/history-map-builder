@@ -55,7 +55,7 @@ const ObjectDialog = ({
 
   return (
     <Dialog open={!!object} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-x-auto md:overflow-x-hidden overflow-y-hidden">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-base md:text-lg">
             {displayName}
@@ -78,8 +78,8 @@ const ObjectDialog = ({
                 )}
               </div>
             )}
-            <div className="overflow-x-auto md:overflow-x-visible">
-              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line">{object.info}</p>
+            <div>
+              <p className="text-xs md:text-sm text-foreground text-justify whitespace-pre-line break-words">{object.info}</p>
             </div>
             
             {relatedEvents.length > 0 && (
