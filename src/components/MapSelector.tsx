@@ -14,7 +14,7 @@ const MapSelector = ({ maps, onSelectMap }: MapSelectorProps) => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6 items-stretch md:items-start">
           <div className="order-1 col-span-2 md:order-2 md:col-span-1 flex items-center justify-center w-fit h-fit mx-auto mt-0 md:mt-20">
             <img 
-              src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/30f25ee7-1e02-44e5-82dd-a98d0ef58402.png" 
+              src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/f68d955e-e109-479c-a904-3300dda0bfcf.png" 
               alt="Эмблема"
               className="block w-44 h-44 md:w-64 md:h-64 object-contain select-none pointer-events-none scale-[1.2] md:scale-125 transition-transform duration-300 hover:scale-[1.25] md:hover:scale-[1.4]"
               draggable="false"
