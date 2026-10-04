@@ -635,7 +635,7 @@ export const mapData: Record<string, { objects: MapObject[], events: Event[], bo
 4. МАЛЕНЬКИЙ ГОРОД С БОЛЬШОЙ ИСТОРИЕЙ [Электронный ресурс]. – Режим доступа: https://придоньецимлы.рф/2021/05/19/malenkij-gorod-s-bolshoj-istoriej/ (дата обращения: 16.06.2026).`, 
         activeFrom: 1595, 
         activeTo: 1965,
-        image: 'https://tsimla-news.ru/wp-content/uploads/2026/09/REeXVySS8H4.jpg',
+        image: '/images/ust-tsymla.jpg',
         imageCaption: 'Вид на Приморский парк города Цимлянска, 2020-е гг.',
         customDate: 'Возник как казачий городок не позднее кон. 1590-х – нач. 1600-х гг.',
         namePeriods: [
