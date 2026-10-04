@@ -74,7 +74,7 @@ const Index = () => {
           <div className="flex items-center gap-3 justify-center md:justify-start">
             <div className="hidden md:block w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-[#FCD975] flex-shrink-0 overflow-hidden">
               <img
-                src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/abfe84db-251f-4ef9-8590-bc02245cda79.png"
+                src="https://cdn.poehali.dev/projects/1b4b70d3-baad-4bc6-90fd-9ea77f09c262/bucket/4321a373-8156-4c9d-a49d-ca71e3256779.jpeg"
                 alt="Эмблема"
                 className="w-full h-full object-cover"
               />
