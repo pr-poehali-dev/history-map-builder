@@ -34,7 +34,7 @@ const MapSidebar = ({
       : nonPersonalityEvents.filter(e => e.category === selectedCategory);
 
   return (
-    <Card className="h-80 shrink-0 md:h-auto md:shrink md:flex-1 flex flex-col min-h-0">
+    <Card className="h-[284px] shrink-0 md:h-auto md:shrink md:flex-1 flex flex-col min-h-0">
       <Tabs defaultValue="personalities" className="flex flex-col h-full">
         <div className="p-2 md:p-4 pb-0">
           <TabsList className="grid w-full grid-cols-2">
