@@ -160,8 +160,8 @@ const Index = () => {
               </div>
             </aside>
 
-            <main className="order-2 md:order-none flex-1 flex flex-col min-h-0 shrink-0 md:shrink">
-              <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-[50vh] md:min-h-0">
+            <main className="order-2 md:order-none flex-none md:flex-1 flex flex-col min-h-0">
+              <div className="flex-1 relative bg-muted/20 overflow-hidden h-[60vh] md:h-auto md:flex-1 md:min-h-0">
                 <HistoricalMap
                   objects={mapObjects}
                   boundaries={boundaries}
