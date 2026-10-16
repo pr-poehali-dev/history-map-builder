@@ -127,7 +127,8 @@ const Index = () => {
           <MapSelector maps={maps} onSelectMap={handleSelectMap} />
         ) : (
           <div className="flex-1 flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-0 overflow-y-auto md:overflow-visible">
-            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 min-h-0 shrink-0 md:shrink">
+            <aside className="contents md:flex md:w-80 md:flex-col md:gap-4 md:min-h-0">
+              <div className="order-1 md:order-none shrink-0 md:shrink">
               <TimeControls
                 currentDate={currentDate}
                 currentMonth={currentMonth}
@@ -144,7 +145,9 @@ const Index = () => {
                 onMapStyleChange={setMapStyle}
                 onBack={handleBack}
               />
+              </div>
 
+              <div className="order-3 md:order-none shrink-0 md:shrink md:flex-1 flex flex-col min-h-0">
               <MapSidebar
                 events={events}
                 eventFilter={eventFilter}
@@ -154,9 +157,10 @@ const Index = () => {
                 onEventFilterChange={setEventFilter}
                 onCategoryChange={setSelectedCategory}
               />
+              </div>
             </aside>
 
-            <main className="flex-1 flex flex-col min-h-0 shrink-0 md:shrink">
+            <main className="order-2 md:order-none flex-none md:flex-1 flex flex-col min-h-0">
               <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-[50vh] md:min-h-0">
                 <HistoricalMap
                   objects={mapObjects}
