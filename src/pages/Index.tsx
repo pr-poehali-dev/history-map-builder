@@ -126,8 +126,8 @@ const Index = () => {
         {!selectedMap ? (
           <MapSelector maps={maps} onSelectMap={handleSelectMap} />
         ) : (
-          <div className="flex-1 flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-0">
-            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 min-h-0">
+          <div className="flex-1 flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-0 overflow-y-auto md:overflow-visible">
+            <aside className="w-full md:w-80 flex flex-col gap-3 md:gap-4 min-h-0 shrink-0 md:shrink">
               <TimeControls
                 currentDate={currentDate}
                 currentMonth={currentMonth}
@@ -156,7 +156,7 @@ const Index = () => {
               />
             </aside>
 
-            <main className="flex-1 flex flex-col min-h-0">
+            <main className="flex-1 flex flex-col min-h-0 shrink-0 md:shrink">
               <div className="flex-1 relative bg-muted/20 overflow-hidden min-h-[50vh] md:min-h-0">
                 <HistoricalMap
                   objects={mapObjects}
